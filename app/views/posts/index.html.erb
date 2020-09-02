@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="posts-container">
+<h1>缶チューハイ</h1>
+
+  <div class="newpost">
+    <%= link_to "新規投稿", posts_new_path %>
+  </div>
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag '検索する'  %>
+<% end %>
+
+
+  <% @posts.each do |t| %>
+    <div class="post">
+    <%= t.user.email %>
+    <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
+      <div class="main-box">
+        <div class="left-container"><%= t.body %></div>
+        <div class="image-container">
+          <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        </div>
+        <div class=right-container>
+          (♡<%= t.liked_users.count %>)
+          <%= link_to "詳細", post_path(t.id) %>
+          <% if user_signed_in? && current_user.id == t.user_id %>  
+            <%= link_to "編集", edit_post_path(t.id) %>
+            <%= link_to "削除", post_path(t.id), method: :delete %>
+          <% end %>
+        </div>
+      </div>
+        <p class="time"><%= t.created_at %></p>
+    </div>
+  <% end %>
+</div>
+
