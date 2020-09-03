@@ -1,0 +1,54 @@
+.container {
+    margin: 0 auto;
+    width: 85%;
+}
+
+.top-container {
+    height: 100px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+.top-container h1 {
+    border-bottom: dashed 5px orange;
+}
+
+.user_post h3 {
+    border-bottom: dashed 3px orange;
+    width: 250px;
+}
+
+
+  
+  .edit {
+    position: relative;
+    border: solid 3px orange;
+    height: 30px;
+    width: 150px;
+    z-index: 1;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-bottom: 50px;
+  }
+
+  .edit:hover {
+    background-color: orange;
+    transition: 0.5s;
+  }
+  
+  .edit a {
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    width: 100%;
+    z-index: 2;
+    text-decoration: none;
+    color: orange;
+    font-size: 18px;
+  }
+
+  .edit a:hover{
+      color: white;
+      transition: 0.5s;
+  }

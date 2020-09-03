@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'posts/new' => 'posts#new'
 
+  get 'posts/search' => 'posts#search'
+
   post 'posts' => 'posts#create'
 
   get 'posts/:id' => 'posts#show',as: 'post'
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
   root 'hello#index'
 
   get 'beer/index' => 'beer#index'
-
 
   resources :posts do
     resources :likes, only: [:create, :destroy]

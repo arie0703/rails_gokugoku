@@ -26,6 +26,17 @@ class PostsController < ApplicationController
       end
     end
 
+    def search
+      if params[:search] == nil
+        @posts= Post.all
+      elsif params[:search] == ''
+        @posts= Post.all
+      else
+        #部分検索
+        @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%')
+      end
+    end
+
     #update
 
     def show
@@ -59,7 +70,7 @@ class PostsController < ApplicationController
     private
 
   def post_params
-    params.require(:post).permit(:body,:image)
+    params.require(:post).permit(:title,:body,:product,:maker,:rate,:image)
   end
 
 

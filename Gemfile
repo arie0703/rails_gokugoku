@@ -58,3 +58,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
+
+gem 'uglifier'
+gem 'jquery-rails'
+gem 'bootstrap'
