@@ -70,4 +70,44 @@
     resize: none;
     font: normal 15px "ＭＳ 明朝";
   }
+
+  /* ボタンのプロパティ */
+
+  input[type="submit"], button {
+    border: solid 3px orange;
+    height: 36px;
+    width: 156px;
+    z-index: 1;
+    text-decoration: none;
+    border-radius: 50px;
+    background-color: white;
+    color: orange;
+    margin-top: 10px;
+    font-size: 18px;
+    display: block;
+  }
+
+  input[type="submit"]:hover, button:hover {
+    background-color: orange;
+    transition: 0.5s;
+    color: white;
+  }
+
+
+  /* 共通CSS */
   
+
+  .wrapper-common {
+    width: 50%;
+    margin: 10px auto;
+  }
+
+  .wrapper-common h1 {
+    border-bottom: dashed 5px orange;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"] {
+    height: 30px;
+    width: 300px;
+  }

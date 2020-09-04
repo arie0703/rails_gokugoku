@@ -34,7 +34,7 @@
           <%= link_to "編集", edit_post_path(t.id) %>
           <%= link_to "削除", post_path(t.id), method: :delete %>
           <% end %>
-          <p class="time"><%= t.created_at %></p>
+          <p class="time">投稿日: <%= t.created_at.to_s(:datetime_jp) %></p>
         </div>
     </div>
   <% end %>

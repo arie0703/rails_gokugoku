@@ -9,11 +9,6 @@
     border-bottom: dashed 5px orange;
   }
 
-  input[type="text"] {
-    height: 30px;
-    width: 300px;
-  }
-
   textarea {
     resize: none;
     height: 200px;
@@ -22,21 +17,3 @@
     font-size: 15px;
   }
 
-  input[type="submit"] {
-    border: solid 3px orange;
-    height: 40px;
-    width: 150px;
-    z-index: 1;
-    text-decoration: none;
-    border-radius: 50px;
-    background-color: white;
-    color: orange;
-    display: block;
-    margin-top: 10px;
-  }
-
-  input[type="submit"]:hover {
-    background-color: orange;
-    transition: 0.5s;
-    color: white;
-  }
