@@ -12,28 +12,57 @@
   </div>
 </div>
 
+  <!--投稿表示-->
   <% @posts.each do |t| %>
     <div class="post">
       <div class="main-box">
-        <div class="post-info">
-          <p>タイトル: <%= t.title %></p>
-          <p>投稿者: <a href="/users/<%= t.user.id %>"><%= t.user.name %></a></p>
+          <h3><%= t.title %></h3>
+          <p>投稿者: <%= t.user.name %></p>
           <p>商品名: <%= t.product %></p>
-          <p>メーカー: <%= t.maker %></p>
+          <p>メーカー: <%= t.maker %>
+          <span class="alcohol">度数: <%= t.alcohol%></span>
+          </p>
+          <p>評価: 
+            <% if t.rate == 1 %>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 2%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 3%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 4%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 5%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+            <% end %>
+          </p>
         <div class="body-container">
-        <%= t.body %><br>
-          <div class="image-container">
-            <%= image_tag t.image_url, size: "250x200" if t.image? %>
-          </div>
+          <%= safe_join(t.body.split("\n"),tag(:br)) %><br>
+          <%= image_tag t.image_url if t.image? %>
         </div>
       </div>
         <div class="post-option">
-          (♡<%= t.liked_users.count %>)
-          <%= link_to "詳細", post_path(t.id) %>
-          <% if user_signed_in? && current_user.id == t.user_id %>  
-          <%= link_to "編集", edit_post_path(t.id) %>
-          <%= link_to "削除", post_path(t.id), method: :delete %>
-          <% end %>
+          ♡いいね: <%= t.liked_users.count %>
+          <%= link_to "", post_path(t.id) %>
           <p class="time">投稿日: <%= t.created_at.to_s(:datetime_jp) %></p>
         </div>
     </div>

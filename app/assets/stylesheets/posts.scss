@@ -63,6 +63,23 @@ h3 {
     justify-content: space-between;
 }
 
+.main-box h3 {
+    margin: 5px 0;
+}
+
+.body-container {
+    padding-top: 5px;
+    min-height: 100px;
+    border-top: dotted 1px grey;
+}
+
+.body-container img {
+    width:auto;
+    height:auto;
+    max-width: 250px;
+    max-height: 200px;
+}
+
 .post-option {
     display: inline;
 }
@@ -76,9 +93,54 @@ h3 {
     min-height: 100px;
 }
 
+.comment-wrapper {
+    margin-top: 20px;
+}
+
 .comment {
     border-radius: 10px;
     background-color: rgba(255,217,0,0.7);
     width: 70%;
     padding: 10px 10px;
+}
+
+.post {
+    position: relative;
+    z-index: 1; 
+}
+
+/* 要素全体をリンクにする処理 */
+
+.post a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2; 
+}
+
+.post:hover {
+    background-color: rgba(255, 217, 0, 0.1);
+    transition: 0.4s;
+}
+
+.alcohol {
+    display: inline;
+    margin-left: 20px;
+}
+
+/* エラ〜メッセージのCSS */
+
+.alert {
+    color:#262626; 
+    background:#FFEBE8;
+    border:2px solid #990000;
+    padding:12px; font-weight:850;
+    margin-bottom: 10px;
+}
+
+.alert ul {
+    list-style: none;
 }

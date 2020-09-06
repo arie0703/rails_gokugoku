@@ -4,7 +4,44 @@
     <p>投稿者: <a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a></p>
     <p>商品名: <%= @post.product %></p>
     <p>メーカー: <%= @post.maker %></p>
-    <p><%= @post.body %></p>
+    <p>度数: <%= @post.alcohol%></p>
+    <p>評価: 
+    <% if @post.rate == 1 %>
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-off">
+      <img src ="/assets/star-off">
+      <img src ="/assets/star-off">
+      <img src ="/assets/star-off">
+    <% elsif @post.rate == 2%>
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-off">
+      <img src ="/assets/star-off">
+      <img src ="/assets/star-off">
+    <% elsif @post.rate == 3%>
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-off">
+      <img src ="/assets/star-off">
+    <% elsif @post.rate == 4%>
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-off">
+    <% elsif @post.rate == 5%>
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+      <img src ="/assets/star-on">
+    <% end %>
+    </p>
+    <div class="body-container">
+      <%= safe_join(@post.body.split("\n"),tag(:br)) %><br>
+      <%= image_tag @post.image_url if @post.image? %>  
+    </div>
   </div>
   <p class="time">投稿日: <%= @post.created_at.to_s(:datetime_jp) %></p>
   <h3>いいね: <%= @post.likes.count %></h3>
@@ -35,10 +72,14 @@
         <div class="comment">
           [<%= i %>]
           <%= c.user.name unless c.user.blank? %>
+          <% if current_user.id == c.user.id %>
+            <%= link_to '削除', post_comment_path(@post, c), method: :delete %>
+          <% end %>
           <br>
           <%= c.comment unless c.comment.blank? %>
         </div>
         <br>
+        
       <% end %>
     <% end %>
     
@@ -54,5 +95,8 @@
       <p>コメントを投稿するにはログインしてください。</p>
     <% end %>
   </div>
-  <%= link_to "投稿一覧に戻る", posts_path %>
+  <br>
+  <div class ="btn">
+    <%= link_to "戻る", posts_path %>
+  </div>
 </div>
