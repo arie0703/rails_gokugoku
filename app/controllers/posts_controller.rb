@@ -59,6 +59,7 @@ class PostsController < ApplicationController
       redirect_to action: :index
     end
 
+    #認証　投稿一覧と詳細は認証を外す
     before_action :authenticate_user!, except: [:index, :show]
     
     private
