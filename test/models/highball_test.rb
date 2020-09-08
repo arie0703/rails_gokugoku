@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LikePTest < ActiveSupport::TestCase
+class HighballTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

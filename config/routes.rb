@@ -28,11 +28,68 @@ Rails.application.routes.draw do
 
   root 'hello#index'
 
-  get 'beer/index' => 'beer#index'
+  #ビール
+
+  get 'beers' => 'beers#index'
+
+  get 'beers/new' => 'beers#new'
+
+  get 'beers/search' => 'beers#search'
+
+  post 'beers' => 'beers#create'
+
+  get 'beers/:id' => 'beers#show',as: 'beer'
+    
+  patch 'beers/:id' => 'beers#update'
+
+  delete 'beers/:id' => 'beers#destroy'
+  
+  get 'beers/:id/edit' => 'beers#edit', as:'edit_beer'
+
+  #highball
+
+  get 'highballs' => 'highballs#index'
+
+  get 'highballs/new' => 'highballs#new'
+
+  get 'highballs/search' => 'highballs#search'
+
+  post 'highballs' => 'highballs#create'
+
+  get 'highballs/:id' => 'highballs#show',as: 'highball'
+    
+  patch 'highballs/:id' => 'highballs#update'
+
+  delete 'highballs/:id' => 'highballs#destroy'
+  
+  get 'highballs/:id/edit' => 'highballs#edit', as:'edit_highball'
+
+  #food
+
+  get 'foods' => 'foods#index'
+
+  get 'foods/new' => 'foods#new'
+
+  get 'foods/search' => 'foods#search'
+
+  post 'foods' => 'foods#create'
+
+  get 'foods/:id' => 'foods#show',as: 'food'
+    
+  patch 'foods/:id' => 'foods#update'
+
+  delete 'foods/:id' => 'foods#destroy'
+  
+  get 'foods/:id/edit' => 'foods#edit', as:'edit_food'
 
   resources :posts do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
+
+  #resources :beers do
+  #  resources :likes, only: [:create, :destroy]
+  #  resources :comments, only: [:create, :destroy]
+  #end
 
 end

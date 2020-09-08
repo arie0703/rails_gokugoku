@@ -1,0 +1,70 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="posts-container">
+<h1>ビール</h1>
+<p>お酒といえばやっぱりビール！お気に入りのビールを共有しましょう！</p>
+<div class="btn-container">
+  <div class="btn">
+    <%= link_to "投稿", beers_new_path %>
+  </div>
+  <div class="btn">
+    <%= link_to "検索", beers_search_path %>
+  </div>
+</div>
+
+  <!--投稿表示-->
+  <% @beers.each do |t| %>
+    <div class="post">
+      <div class="main-box">
+          <h3><%= t.title %></h3>
+          <p>投稿者: <%= t.user.name %></p>
+          <p>商品名: <%= t.product %></p>
+          <p>メーカー: <%= t.maker %>
+          <span class="alcohol">度数: <%= t.alcohol%></span>
+          </p>
+          <p>評価: 
+            <% if t.rate == 1 %>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 2%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 3%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 4%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-off">
+            <% elsif t.rate == 5%>
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+              <img src ="/assets/star-on">
+            <% end %>
+          </p>
+            <div class="body-container">
+            <%= safe_join(t.body.split("\n"),tag(:br)) %><br>
+            <%= image_tag t.image_url if t.image? %>
+            </div>
+      </div>
+        <div class="post-option">
+          <%= link_to "", beer_path(t.id) %>
+          <p class="time">投稿日: <%= t.created_at.to_s(:datetime_jp) %></p>
+          <br>
+        </div>
+    </div>
+  <% end %>
+</div>

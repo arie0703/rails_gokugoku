@@ -1,0 +1,15 @@
+  get 'foods' => 'foods#index'
+
+  get 'foods/new' => 'foods#new'
+
+  get 'foods/search' => 'foods#search'
+
+  post 'foods' => 'foods#create'
+
+  get 'foods/:id' => 'foods#show',as: 'food'
+    
+  patch 'foods/:id' => 'foods#update'
+
+  delete 'foods/:id' => 'foods#destroy'
+  
+  get 'foods/:id/edit' => 'foods#edit', as:'edit_food'

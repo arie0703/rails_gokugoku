@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_041859) do
+ActiveRecord::Schema.define(version: 2020_09_08_002428) do
+
+  create_table "beers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
+    t.string "title"
+    t.string "maker"
+    t.string "product"
+    t.string "alcohol"
+    t.integer "rate"
+    t.string "image"
+    t.integer "user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "comment"
@@ -20,6 +33,28 @@ ActiveRecord::Schema.define(version: 2020_09_06_041859) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
+    t.string "title"
+    t.string "image"
+    t.integer "user_id"
+  end
+
+  create_table "highballs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
+    t.string "title"
+    t.string "product"
+    t.string "maker"
+    t.integer "rate"
+    t.string "alcohol"
+    t.string "image"
+    t.integer "user_id"
   end
 
   create_table "likes", force: :cascade do |t|

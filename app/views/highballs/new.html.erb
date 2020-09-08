@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="container">
+    <p class="title">投稿フォーム</p>
+
+    <div class="form-container">
+      <%= form_for @highball do |f| %>
+      <!-- エラーメッセージ -->
+      <%= render 'layouts/error_messages', model: f.object %>
+      <p>タイトル</p>
+      <%= f.text_field :title,size: 80, :class => 'title-form' %>
+      <p>商品名</p>
+      <%= f.text_field :product,size: 80%>
+      <p>メーカー</p>
+      <%= f.text_field :maker,size: 80 %>
+      <p>評価（最高: ☆×5 最低: ☆×1)</p>
+      <%= f.select :rate, [["☆×5", "5"], ["☆×4", "4"], ["☆×3", "3"], ["☆×2", "2"], ["☆×1", "1"]], include_blank: "選択して下さい" %>
+      <p>アルコール度数</p>
+      <%= f.select :alcohol, [["超ストロング（10%以上)", "超ストロング（10%以上)"], ["ストロング(7%〜9%)", "ストロング(7%〜9%)"], ["中(4%〜6%)", "中(4%〜6%)"], ["弱(3%以下)", "弱(3%以下)"], ["ノンアルコール", "ノンアルコール"]], include_blank: "選択して下さい" %>
+      <p>本文</p>
+      <%= f.text_area :body,size: 140, :class => 'body-form' %>
+      <p>写真</p>
+      <%= f.file_field :image %>
+      <%= f.submit "送信"%>
+      <% end %>
+    </div>
+       
