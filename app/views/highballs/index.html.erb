@@ -61,6 +61,7 @@
             </div>
       </div>
         <div class="post-option">
+          ♡いいね: <%= t.highliked_users.count %>
           <%= link_to "", highball_path(t.id) %>
           <p class="time">投稿日: <%= t.created_at.to_s(:datetime_jp) %></p>
           <br>

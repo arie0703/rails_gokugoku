@@ -35,6 +35,9 @@ class HighballsController < ApplicationController
   
       def show
         @highball = Highball.find(params[:id])
+        @highlike = Highlike.new
+        @highcomments = @highball.highcomments
+        @highcomment = @highball.highcomments.build
       end
   
       def edit

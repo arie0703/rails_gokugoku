@@ -35,6 +35,9 @@ class BeersController < ApplicationController
   
       def show
         @beer = Beer.find(params[:id])
+        @beerlike = Beerlike.new
+        @beercomments = @beer.beercomments
+        @beercomment = @beer.beercomments.build
       end
   
       def edit

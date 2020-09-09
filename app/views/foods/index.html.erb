@@ -24,6 +24,7 @@
         </div>
       </div>
         <div class="post-option">
+          ♡いいね: <%= t.foodliked_users.count %>
           <%= link_to "", food_path(t.id) %>
           <p class="time">投稿日: <%= t.created_at.to_s(:datetime_jp) %></p>
           <br>

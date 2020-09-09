@@ -87,9 +87,18 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  #resources :beers do
-  #  resources :likes, only: [:create, :destroy]
-  #  resources :comments, only: [:create, :destroy]
-  #end
+  resources :beers do
+    resources :beerlikes, only: [:create, :destroy]
+    resources :beercomments, only: [:create, :destroy]
+  end
 
+  resources :highballs do
+    resources :highlikes, only: [:create, :destroy]
+    resources :highcomments, only: [:create, :destroy]
+  end
+
+  resources :foods do
+    resources :foodlikes, only: [:create, :destroy]
+    resources :foodcomments, only: [:create, :destroy]
+  end
 end

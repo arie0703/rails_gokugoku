@@ -1,0 +1,2 @@
+module BeerlikesHelper
+end

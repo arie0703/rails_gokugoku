@@ -44,6 +44,7 @@
     </div>
   </div>
   <p class="time">投稿日: <%= @highball.created_at.to_s(:datetime_jp) %></p>
+  <h3>いいね: <%= @highball.highlikes.count %></h3>
   
 
   <!-- 投稿者なら編集・削除、それ以外のユーザーならいいねボタンを表示 -->
@@ -54,7 +55,48 @@
     <div class="btn">
       <%= link_to "削除", highball_path(@highball.id), data: { confirm: "投稿を削除しますか？" }, method: :delete %>
     </div>
+    <% elsif user_signed_in? && current_user.id != @highball.user_id %>
+    <% if current_user.already_highliked?(@highball) %>
+      <%= button_to '取り消し', highball_highlike_path(@highball), method: :delete %>
+    <% else %>
+      <%= button_to 'いいね', highball_highlikes_path(@highball) %>
+    <% end %>
   <% end %>
+
+  <div class="comment-wrapper">
+    <h3>コメント一覧</h3>
+
+    
+    <% @highcomments.each.with_index(1) do |c, i| %>
+      <!-- 最新コメントとして空のコメントが表示されるバグがあったので、最新コメントが表示されない処理-->
+      <% if i != @highcomments.size %> 
+        <div class="comment">
+          [<%= i %>]
+          <%= c.user.name unless c.user.blank? %>
+          <% if current_user.id == c.user.id %>
+            <%= link_to '削除', highball_highcomment_path(@highball, c), data: { confirm: "コメントを削除しますか？" }, method: :delete %>
+          <% end %>
+          <br>
+          <%= safe_join(c.highcomment.split("\n"),tag(:br)) unless c.highcomment.blank? %>
+        </div>
+        <br>
+        
+      <% end %>
+    <% end %>
+    
+    <% if user_signed_in? %>
+      <p>コメントを投稿する</p>
+      <%= form_with(model: [@highball, @highcomment], local: true) do |f| %>
+        <%= f.text_area :highcomment%>
+        <%= button_tag type: "submit" do %>
+          <p>投稿</p>
+        <% end %>
+      <% end %>
+      <% else %>
+      <p>コメントを投稿するにはログインしてください。</p>
+    <% end %>
+  </div>
+  
   
   <br>
   <div class ="btn">
