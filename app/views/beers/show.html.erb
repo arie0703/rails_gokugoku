@@ -72,7 +72,7 @@
         <div class="comment">
           [<%= i %>]
           <%= c.user.name unless c.user.blank? %>
-          <% if current_user.id == c.user.id %>
+          <% if user_signed_in? && current_user.id == c.user.id %>
             <%= link_to '削除', beer_beercomment_path(@beer, c), data: { confirm: "コメントを削除しますか？" }, method: :delete %>
           <% end %>
           <br>

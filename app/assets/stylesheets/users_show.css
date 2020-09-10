@@ -1,27 +1,39 @@
-.container {
+
+  .user-wrapper {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+  }
+
+  .left-container{
+    padding-top: 20px;
+    height: 600px;
+    display:inline-block;
+    width: 300px;
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+  }
+
+  .profile {
     margin: 0 auto;
-    width: 50%;
-}
+    width: 80%;
+    min-height: 150px;
+    border: solid 1px black;
+    border-radius: 20px;
+  }
 
-.top-container {
+  .follow {
     height: 100px;
-    padding-top: 10px;
-    margin-bottom: 20px;
-}
+    display: inline-block;
+    padding:15px;
+    width: 45%;
+    box-sizing: border-box;
+  }
 
-.top-container h1 {
-    border-bottom: dashed 5px orange;
-}
-
-.top-container p{
-  margin-top:10px;
-}
-
-.user_post h3 {
-    border-bottom: dashed 3px orange;
-    width: 250px;
-}
-
+  .follow:hover {
+    opacity: 0.4;
+    transition: 0.4s;
+  }
 
   
   .edit {
@@ -32,7 +44,8 @@
     z-index: 1;
     text-decoration: none;
     border-radius: 50px;
-    margin-bottom: 50px;
+    margin: 0 auto;
+    text-align: left;
   }
 
   .edit:hover {
@@ -52,6 +65,44 @@
   }
 
   .edit a:hover{
-      color: white;
-      transition: 0.5s;
+    color: white;
+    transition: 0.5s;
+  }
+
+  .like, .foto-like, .postview{
+    margin-top: 10px;
+  }
+
+  .like a, .foto-like a, .postview a{
+    color:grey;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .postview a:hover {
+    color: blue;
+    font-style: bold;
+  }
+
+  .like a:hover {
+    color: red;
+    font-style: bold;
+  }
+
+  .foto-like a:hover {
+    color: green;
+    font-style: bold;
+  }
+  /* アイコン*/
+  .icon_image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    object-fit: cover;
+  }
+
+
+  .right-wrapper {
+    display: inline-block;
+    padding: 30px;
   }

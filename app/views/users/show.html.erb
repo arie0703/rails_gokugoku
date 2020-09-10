@@ -1,24 +1,57 @@
 <%= stylesheet_link_tag "users_show", :media => "all" %>
-<div class= "container">
+<div class= "user-wrapper">
 
-  <div class= "top-container">
-    <h1><%= @user.name %>のマイページ</h1>
-    <p><%= @user.profile %></p>
+  <div class= "left-container">
+    
+    <% if @user.image? %>                                                              
+      <img src=<%= @user.image %> class = "icon_image">
+    <% end %>
+    <h2><%= @user.name %></h2>
+
+    <div class="follow">
+      <h3>12</h3>
+      <p>フォロー</p>
+    </div>
+    <div class="follow">
+      <h3>1</h3>
+      <p>フォロワー</p>
+    </div>
+
+    <div class="profile">
+      <%= @user.profile %>
+    </div>
+
+    
+      <div class= "postview">
+        <%= link_to "□投稿一覧", edit_user_registration_path%>
+      </div>
+
+      <div class= "like">
+        <%= link_to "❤︎飲みたい!", edit_user_registration_path%>
+      </div>
+
+      <div class= "foto-like">
+        <%= link_to "◇Good Foto", edit_user_registration_path%>
+      </div>
+
+    <br>
+    <% if current_user.id == @user.id %>
+      <div class= "edit">
+        <%= link_to "編集", edit_user_registration_path%>
+      </div>
+    <% end %>
+
   </div>
 
-  <% if current_user.id == @user.id %>
-    <div class= "edit">
-      <%= link_to "編集", edit_user_registration_path%>
-    </div>
-  <% end %>
   
-
-  <div class ="user_post">
-    <h3>投稿一覧</h3>
-    <% @user.posts.each do |t| %>
-      <p><%= link_to t.title, post_path(t.id) %></p>
-    <% end %>
-  </div> 
+  <div class ="right-wrapper">
+    <div class ="user-post">
+      <h3>投稿一覧</h3>
+      <% @user.posts.each do |t| %>
+        <p><%= link_to t.title, post_path(t.id) %></p>
+      <% end %>
+    </div> 
+  </div>
 
 
 
