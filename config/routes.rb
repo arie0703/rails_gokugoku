@@ -82,6 +82,12 @@ Rails.application.routes.draw do
   
   get 'foods/:id/edit' => 'foods#edit', as:'edit_food'
 
+  resources :users, only: [:index, :show] do
+    collection do
+      get :likes
+    end
+  end
+
   resources :posts do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]

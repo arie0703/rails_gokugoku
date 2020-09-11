@@ -22,17 +22,7 @@
     </div>
 
     
-      <div class= "postview">
-        <%= link_to "□投稿一覧", edit_user_registration_path%>
-      </div>
 
-      <div class= "like">
-        <%= link_to "❤︎飲みたい!", edit_user_registration_path%>
-      </div>
-
-      <div class= "foto-like">
-        <%= link_to "◇Good Foto", edit_user_registration_path%>
-      </div>
 
     <br>
     <% if current_user.id == @user.id %>
@@ -45,12 +35,51 @@
 
   
   <div class ="right-wrapper">
-    <div class ="user-post">
-      <h3>投稿一覧</h3>
-      <% @user.posts.each do |t| %>
-        <p><%= link_to t.title, post_path(t.id) %></p>
-      <% end %>
-    </div> 
+
+    <div class="tabs">
+      <input id="postview" type="radio" name="tab_item" checked>
+      <label class="tab_item tab1" for="postview">□投稿一覧</label>
+      <input id="foto" type="radio" name="tab_item">
+      <label class="tab_item tab2" for="foto">□飲みFoto</label>
+      <input id="like" type="radio" name="tab_item">
+      <label class="tab_item tab3" for="like">❤︎飲みたい!</label>
+      <input id="foto-like" type="radio" name="tab_item">
+      <label class="tab_item tab4" for="foto-like">♦︎いいねしたフォト</label>
+
+      <div class="tab_content" id="post_content" for="postview">
+        <h3>投稿一覧</h3>
+        <% @user.posts.each do |t| %>
+        <div class ="postview">
+          <p><%= t.product%></p>
+          <h4><%= t.title%></h4>              
+          <p>投稿日時: <%= t.created_at.to_s(:datetime_jp)%></p>
+          <%= link_to "", post_path(t.id) %>
+        </div>
+        <% end %>
+      </div>
+      <div class="tab_content" id="foto_content" for="foto">
+          フォト
+      </div>
+      <div class="tab_content" id="like_content" for="like">
+          飲みたい！<br>
+          <% @user.like_posts.each do |t| %>
+          <img src=<%= t.user.image %> class = "user-icon">
+            <div class ="postview">
+              <p><%= t.product%></p>
+              <h4><%= t.title%></h4>              
+              <p>by <%= t.user.name%></p>
+              <%= link_to "", post_path(t.id) %>
+            </div>
+          <% end %>
+      </div>
+      <div class="tab_content" id="fotolike_content" for="foto-like">
+          よいフォト
+      </div>
+    </div>
+
+    
+
+
   </div>
 
 
