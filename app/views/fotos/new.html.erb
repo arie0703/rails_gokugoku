@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="container">
+    <p class="title">投稿フォーム</p>
+
+    <div class="form-container">
+      <%= form_for @foto do |f| %>
+      <!-- エラーメッセージ -->
+      <%= render 'layouts/error_messages', model: f.object %>
+      <p>タイトル</p>
+      <%= f.text_field :title,size: 80, :class => 'title-form' %>
+      <p>本文</p>
+      <%= f.text_area :body,size: 140, :class => 'body-form' %>
+      <p>写真</p>
+      <%= f.file_field :image %>
+      <%= f.submit "送信"%>
+      <% end %>
+    </div>
+       

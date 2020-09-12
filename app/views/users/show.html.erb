@@ -5,6 +5,8 @@
     
     <% if @user.image? %>                                                              
       <img src=<%= @user.image %> class = "icon_image">
+    <% else %>
+      <img src="/assets/noicon.jpg" class= "icon_image"> 
     <% end %>
     <h2><%= @user.name %></h2>
 
@@ -38,16 +40,15 @@
 
     <div class="tabs">
       <input id="postview" type="radio" name="tab_item" checked>
-      <label class="tab_item tab1" for="postview">□投稿一覧</label>
+      <label class="tab_item tab1" for="postview">□飲みメモ</label>
       <input id="foto" type="radio" name="tab_item">
-      <label class="tab_item tab2" for="foto">□飲みFoto</label>
+      <label class="tab_item tab2" for="foto">□ギャラリー</label>
       <input id="like" type="radio" name="tab_item">
       <label class="tab_item tab3" for="like">❤︎飲みたい!</label>
       <input id="foto-like" type="radio" name="tab_item">
       <label class="tab_item tab4" for="foto-like">♦︎いいねしたフォト</label>
 
       <div class="tab_content" id="post_content" for="postview">
-        <h3>投稿一覧</h3>
         <% @user.posts.each do |t| %>
         <div class ="postview">
           <p><%= t.product%></p>
@@ -57,12 +58,23 @@
         </div>
         <% end %>
       </div>
+
       <div class="tab_content" id="foto_content" for="foto">
-          フォト
+        <% @user.fotos.each do |t| %>
+          <div class="fotoview-wrapper">
+            <div class ="fotoview-post">
+            <img src=<%= t.image_url %> class= "fotoview">
+            <%= link_to "", foto_path(t.id) %>
+              <div class="fotoview-option">
+                <h4>♡ <%= t.fotoliked_users.count %></h4>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
+
       <div class="tab_content" id="like_content" for="like">
-          飲みたい！<br>
-          <% @user.like_posts.each do |t| %>
+          <% @user.liked_posts.each do |t| %>
           <img src=<%= t.user.image %> class = "user-icon">
             <div class ="postview">
               <p><%= t.product%></p>
@@ -72,8 +84,19 @@
             </div>
           <% end %>
       </div>
+
       <div class="tab_content" id="fotolike_content" for="foto-like">
-          よいフォト
+        <% @user.fotoliked_fotos.each do |t| %>
+          <div class="fotoview-wrapper">
+            <div class ="fotoview-post">
+            <img src=<%= t.image_url %> class= "fotoview">
+            <%= link_to "", foto_path(t.id) %>
+              <div class="fotoview-option">
+                <h4>♡ <%= t.fotoliked_users.count %></h4>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 

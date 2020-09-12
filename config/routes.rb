@@ -28,63 +28,28 @@ Rails.application.routes.draw do
 
   root 'hello#index'
 
-  #ビール
+  #foto
 
-  get 'beers' => 'beers#index'
+  get 'fotos' => 'fotos#index'
 
-  get 'beers/new' => 'beers#new'
+  get 'fotos/new' => 'fotos#new'
 
-  get 'beers/search' => 'beers#search'
+  get 'fotos/search' => 'fotos#search'
 
-  post 'beers' => 'beers#create'
+  post 'fotos' => 'fotos#create'
 
-  get 'beers/:id' => 'beers#show',as: 'beer'
+  get 'fotos/:id' => 'fotos#show',as: 'foto'
     
-  patch 'beers/:id' => 'beers#update'
+  patch 'fotos/:id' => 'fotos#update'
 
-  delete 'beers/:id' => 'beers#destroy'
+  delete 'fotos/:id' => 'fotos#destroy'
   
-  get 'beers/:id/edit' => 'beers#edit', as:'edit_beer'
-
-  #highball
-
-  get 'highballs' => 'highballs#index'
-
-  get 'highballs/new' => 'highballs#new'
-
-  get 'highballs/search' => 'highballs#search'
-
-  post 'highballs' => 'highballs#create'
-
-  get 'highballs/:id' => 'highballs#show',as: 'highball'
-    
-  patch 'highballs/:id' => 'highballs#update'
-
-  delete 'highballs/:id' => 'highballs#destroy'
-  
-  get 'highballs/:id/edit' => 'highballs#edit', as:'edit_highball'
-
-  #food
-
-  get 'foods' => 'foods#index'
-
-  get 'foods/new' => 'foods#new'
-
-  get 'foods/search' => 'foods#search'
-
-  post 'foods' => 'foods#create'
-
-  get 'foods/:id' => 'foods#show',as: 'food'
-    
-  patch 'foods/:id' => 'foods#update'
-
-  delete 'foods/:id' => 'foods#destroy'
-  
-  get 'foods/:id/edit' => 'foods#edit', as:'edit_food'
+  get 'fotos/:id/edit' => 'fotos#edit', as:'edit_foto'
 
   resources :users, only: [:index, :show] do
     collection do
       get :likes
+      get :fotolikes
     end
   end
 
@@ -93,18 +58,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  resources :beers do
-    resources :beerlikes, only: [:create, :destroy]
-    resources :beercomments, only: [:create, :destroy]
-  end
-
-  resources :highballs do
-    resources :highlikes, only: [:create, :destroy]
-    resources :highcomments, only: [:create, :destroy]
-  end
-
-  resources :foods do
-    resources :foodlikes, only: [:create, :destroy]
-    resources :foodcomments, only: [:create, :destroy]
+  resources :fotos do
+    resources :fotolikes, only: [:create, :destroy]
+    resources :fotocomments, only: [:create, :destroy]
   end
 end
