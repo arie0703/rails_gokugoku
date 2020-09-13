@@ -6,7 +6,15 @@ class UsersController < ApplicationController
     @fotos = @user.fotos.page(params[:page]).per(6)
   end
 
-  def allposts
+  def followings
+    @user = User.find(params[:id])
+  end
+
+  def followers
+    @user = User.find(params[:id])
+  end
+
+  def all_posts
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(2).order('updated_at DESC')
   end

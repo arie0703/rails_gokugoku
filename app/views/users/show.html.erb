@@ -1,41 +1,7 @@
 <%= stylesheet_link_tag "users_show", :media => "all" %>
 <div class= "user-wrapper">
 
-  <div class= "left-container">
-    
-    <% if @user.image? %>                                                              
-      <img src=<%= @user.image %> class = "icon_image">
-    <% else %>
-      <img src="/assets/noicon.jpg" class= "icon_image"> 
-    <% end %>
-    <h2><%= @user.name %></h2>
-
-    <div class="follow">
-      <h3>12</h3>
-      <p>フォロー</p>
-    </div>
-    <div class="follow">
-      <h3>1</h3>
-      <p>フォロワー</p>
-    </div>
-
-    <div class="profile">
-      <%= @user.profile %>
-    </div>
-
-    
-
-
-    <br>
-    <% if current_user.id == @user.id %>
-      <div class= "edit">
-        <%= link_to "編集", edit_user_registration_path%>
-      </div>
-    <% end %>
-
-  </div>
-
-  
+  <%= render 'user_info', user: @user %> 
   <div class ="right-wrapper">
 
     <div class="tabs">

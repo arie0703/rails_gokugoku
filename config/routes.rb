@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   get 'users/sign_in' => 'users#settions'
   
-  get 'users/:id/allposts' => 'users#allposts'
+  get 'users/:id/all_posts' => 'users#all_posts'
+
+  get 'users/:id/followings' => 'users#followings'
+
+  get 'users/:id/followers' => 'users#followers'
 
   get 'posts' => 'posts#index'
 
@@ -54,6 +58,8 @@ Rails.application.routes.draw do
       get :fotolikes
     end
   end
+
+  resources :relationships, only: [:create, :destroy]
 
   resources :posts do
     resources :likes, only: [:create, :destroy]
