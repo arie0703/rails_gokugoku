@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show, :allpost]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'hello/index' => 'hello#index'
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'hello/link' => 'hello#link'
 
   get 'users/sign_in' => 'users#settions'
+  
+  get 'users/:id/allposts' => 'users#allposts'
 
   get 'posts' => 'posts#index'
 

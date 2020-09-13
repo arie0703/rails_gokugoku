@@ -131,6 +131,13 @@ h3 {
     margin-left: 20px;
 }
 
+.pagination li {
+    list-style: none;
+    display: inline;
+    padding: 5px;
+}
+
+
 /* エラ〜メッセージのCSS */
 
 .alert {
@@ -144,3 +151,4 @@ h3 {
 .alert ul {
     list-style: none;
 }
+
