@@ -1,18 +1,18 @@
-<%= stylesheet_link_tag 'index', :media => "all" %>
+<%= stylesheet_link_tag 'foto', :media => "all" %>
 
 <div class="gallery-container">
-<h1>宅飲みギャラリー</h1>
-<p>あなたの宅飲みライフを写真で共有しましょう！</p>
-<div class="btn-container">
-  <div class="btn">
-    <%= link_to "投稿", fotos_new_path %>
-  </div>
-  <div class="btn">
-    <%= link_to "検索", fotos_search_path %>
-  </div>
-</div>
+  <h1>宅飲みギャラリー</h1>
+  <p>あなたの宅飲みライフを写真で共有しましょう！</p>
+    <div class="btn-container">
+      <div class="btn">
+        <%= link_to "投稿", fotos_new_path %>
+      </div>
+      <div class="btn">
+        <%= link_to "検索", fotos_search_path %>
+      </div>
+    </div>
 
-  <!--投稿表示-->
+<!--投稿表示-->
   <% @fotos.each do |t| %>
     <div class="foto-wrapper">
       <div class ="foto-post">
@@ -31,9 +31,9 @@
           <p><%= t.user.name %></p>
       </div>
     </div>
-    
   <% end %>
-  <div class="pagination"><%= paginate @fotos %></div>
+  <%= paginate @fotos %>
+
 </div>
 
 

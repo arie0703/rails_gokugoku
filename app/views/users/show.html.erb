@@ -6,13 +6,21 @@
 
     <div class="tabs">
       <input id="postview" type="radio" name="tab_item" checked>
-      <label class="tab_item tab1" for="postview">□飲みメモ</label>
+      <label class="tab_item tab1" for="postview"><i class="fas fa-beer">
+        </i>飲みメモ
+      </label>
       <input id="foto" type="radio" name="tab_item">
-      <label class="tab_item tab2" for="foto">□ギャラリー</label>
+      <label class="tab_item tab2" for="foto">
+        <i class="fas fa-camera"></i>ギャラリー
+      </label>
       <input id="like" type="radio" name="tab_item">
-      <label class="tab_item tab3" for="like">❤︎飲みたい!</label>
+      <label class="tab_item tab3" for="like">
+        <i class="far fa-heart"></i>いいねしたメモ
+      </label>
       <input id="foto-like" type="radio" name="tab_item">
-      <label class="tab_item tab4" for="foto-like">♦︎いいねしたフォト</label>
+      <label class="tab_item tab4" for="foto-like">
+        <i class="far fa-heart"></i>いいねしたフォト
+      </label>
 
       <div class="tab_content" id="post_content" for="postview">
         <% @user.posts.each do |t| %>
@@ -41,7 +49,11 @@
 
       <div class="tab_content" id="like_content" for="like">
           <% @user.liked_posts.each do |t| %>
-          <img src=<%= t.user.image %> class = "user-icon">
+            <% if t.user.image? %> 
+              <a href="/users/<%= t.user.id %>"><img src=<%= t.user.image %> class = "user-icon"></a>
+            <% else %>
+              <a href="/users/<%= t.user.id %>"><img src="/assets/noicon.jpg" class= "user-icon"></a>   
+            <% end %>
             <div class ="postview">
               <p><%= t.product%></p>
               <h4><%= t.title%></h4>              

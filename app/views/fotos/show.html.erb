@@ -1,14 +1,27 @@
 <div class="posts-container">
   <h1><%= @foto.title %></h1>
-  <div class="p-wrapper">
-    <p>投稿者: <a href="/users/<%= @foto.user.id %>"><%= @foto.user.name %></a></p>
-    <div class="body-container">
-      <%= safe_join(@foto.body.split("\n"),tag(:br)) %><br>
-      <%= image_tag @foto.image_url if @foto.image? %>  
+  <div class="fotos-detail">
+    <%= image_tag @foto.image_url, class: "detail-img" if @foto.image?%>
+    <div class="contributor-info">
+      <% if @foto.user.image? %>
+        <a href="/users/<%= @foto.user.id %>"><img src=<%= @foto.user.image %> class = "user-icon"></a>
+      <% else %>
+        <a href="/users/<%= @foto.user.id %>"><img src="/assets/noicon.jpg" class= "user-icon"></a>   
+      <% end %>
+      <div class="contributor-comment">
+        <p><%= @foto.user.name %></p>
+        <p><%= safe_join(@foto.body.split("\n"),tag(:br)) %></p>
+      </div>
     </div>
+    <br>
+    <p class="time">投稿日: <%= @foto.created_at.to_s(:datetime_jp) %></p>
+    <h3>いいね: <%= @foto.fotolikes.count %></h3>
+    
   </div>
-  <p class="time">投稿日: <%= @foto.created_at.to_s(:datetime_jp) %></p>
-  <h3>いいね: <%= @foto.fotolikes.count %></h3>
+    
+    
+    
+  
   
 
   <!-- 投稿者なら編集・削除、それ以外のユーザーならいいねボタンを表示 -->
@@ -21,9 +34,9 @@
     </div>
     <% elsif user_signed_in? && current_user.id != @foto.user_id %>
     <% if current_user.already_fotoliked?(@foto) %>
-      <%= button_to '取り消し', foto_fotolike_path(@foto), method: :delete %>
+      <%= button_to '取り消し', foto_fotolike_path(@foto), class: "good-btn", method: :delete %>
     <% else %>
-      <%= button_to 'いいね', foto_fotolikes_path(@foto) %>
+      <%= button_to 'いいね', foto_fotolikes_path(@foto), class: "good-btn" %>
     <% end %>
   <% end %>
 
@@ -52,7 +65,7 @@
       <p>コメントを投稿する</p>
       <%= form_with(model: [@foto, @fotocomment], local: true) do |f| %>
         <%= f.text_area :fotocomment%>
-        <%= button_tag type: "submit" do %>
+        <%= button_tag type: "submit", class: "submit-btn" do%>
           <p>投稿</p>
         <% end %>
       <% end %>

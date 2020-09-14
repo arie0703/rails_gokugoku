@@ -56,9 +56,9 @@
     </div>
   <% elsif user_signed_in? && current_user.id != @post.user_id %>
     <% if current_user.already_liked?(@post) %>
-      <%= button_to '取り消し', post_like_path(@post), method: :delete %>
+      <%= button_to '取り消す', post_like_path(@post), method: :delete, class: "good-btn"%>
     <% else %>
-      <%= button_to 'いいね', post_likes_path(@post) %>
+      <%= button_to 'いいね！', post_likes_path(@post), class: "good-btn"%>
     <% end %>
   <% end %>
 
@@ -87,7 +87,7 @@
       <p>コメントを投稿する</p>
       <%= form_with(model: [@post, @comment], local: true) do |f| %>
         <%= f.text_area :comment%>
-        <%= button_tag type: "submit" do %>
+        <%= button_tag type: "submit", class: "submit-btn" do%>
           <p>投稿</p>
         <% end %>
       <% end %>

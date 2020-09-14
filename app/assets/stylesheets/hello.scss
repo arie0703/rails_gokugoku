@@ -13,32 +13,31 @@
   opacity: 0.7;
 }
 
-.discription {
+.top-text {
     position: absolute;
     top: 0px;
     left: 10px;
 }
 
-.discription h1 {
+.top-text h1 {
     font-size: 65px;
 }
 
-.discription p {
+.top-text p {
     font-size: 20px;
 }
 
-.service {
+.discription {
     text-align: center;
     height: 200px;
     padding: 50px;
-    background-color: lightgoldenrodyellow;
 }
 
-.service p {
+.discription p {
     margin: 30px 0;
 }
 
-.menu {
+.service {
     margin: 10px 30px;
     text-align: center;
     display: flex;
@@ -55,25 +54,9 @@
     overflow: hidden;
 }
 
-
-.block::before {
-    background:orange;
-    content: "";
-    position: absolute;
-    left: -70px;
-    top: 0px;
-    height: 100%;
-    width: 0;
-    transform: skewX(20deg);
-    transition: all .3s ease-in;
-    z-index: -1;
-}
-
-.block:hover::before{
-    width: 200%;
-    transition: all .3s ease-in;
-    z-index: -1;
-    color: white;
+.block:hover {
+    background-color: #ffd900;
+    transition: 0.4s;
 }
 
 .block h2 {
@@ -92,14 +75,6 @@
   height: 200px;
   object-fit: cover;
 }
-
-
-
-.subsc {
-    background-color: #ffa500;
-}
-
-
 
 
 .block a {

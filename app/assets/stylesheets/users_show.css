@@ -47,37 +47,30 @@
   }
 
   
-  .edit {
+  .mymenu {
     position: relative;
-    border: solid 3px orange;
+    border-bottom: solid 1px grey;
     height: 30px;
-    width: 150px;
+    width: 200px;
     z-index: 1;
     text-decoration: none;
-    border-radius: 50px;
     margin: 0 auto;
     text-align: left;
   }
-
-  .edit:hover {
-    background-color: orange;
-    transition: 0.5s;
-  }
   
-  .edit a {
+  .mymenu a {
     position: absolute;
     text-align: center;
     top: 10%;
     width: 100%;
     z-index: 2;
     text-decoration: none;
-    color: orange;
+    color: grey;
     font-size: 18px;
   }
 
-  .edit a:hover{
-    color: white;
-    transition: 0.5s;
+  .mymenu a:hover{
+    font-weight: bold;
   }
 
   .like, .foto-like, .postview{
@@ -136,6 +129,10 @@
   
   .tabs{
     width: 100%;
+  }
+
+  .tabs label {
+    text-align: center;
   }
 
   .tab_item {

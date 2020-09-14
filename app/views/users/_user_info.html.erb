@@ -30,8 +30,11 @@
 
   <br>
   <% if current_user.id == @user.id %>
-    <div class= "edit">
+    <div class= "mymenu">
       <%= link_to "編集", edit_user_registration_path%>
+    </div>
+    <div class= "mymenu">
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
     </div>
   <% end %>
 

@@ -15,6 +15,7 @@
     margin-top: 70px;
 }
 
+/* リンクタグをボタンにする処理 */
 .btn {
     display: inline-block;
     position: relative;
@@ -46,6 +47,27 @@
       color: white;
       transition: 0.5s;
 }
+
+/*　いいねボタン　*/
+
+.good-btn {
+    border: none;
+    background-color: rgba(255,0,0,0.7);
+    height: 36px;
+    width: 156px;
+    z-index: 1;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
+    display: block;
+  }
+
+  .good-btn:hover{
+    background-color: red;
+    transition: 0.5s;
+  }
 
 
 h3 {
@@ -129,12 +151,6 @@ h3 {
 .alcohol {
     display: inline;
     margin-left: 20px;
-}
-
-.pagination li {
-    list-style: none;
-    display: inline;
-    padding: 5px;
 }
 
 
