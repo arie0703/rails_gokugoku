@@ -2,7 +2,7 @@
   <div class ="allview-btn">
     <%= link_to "戻る", :back %>
   </div>
-  <% @user.posts.each do |t| %>
+  <% @user.liked_posts.each do |t| %>
     <div class ="postview">
       <p><%= t.product%></p>
       <h4><%= t.title%></h4>              
@@ -11,5 +11,3 @@
     </div>
   <% end %>
 </div>
-
-    

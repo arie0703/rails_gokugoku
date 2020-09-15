@@ -16,7 +16,18 @@ class UsersController < ApplicationController
 
   def all_posts
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).per(2).order('updated_at DESC')
+  end
+
+  def all_fotos
+    @user = User.find(params[:id])
+  end
+
+  def all_likes
+    @user = User.find(params[:id])
+  end
+
+  def all_fotolikes
+    @user = User.find(params[:id])
   end
 
   def edit

@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag "users_show", :media => "all" %>
 <div class= "user-wrapper">
 
+  <!-- 画面左側のユーザーメニューを表示 -->
   <%= render 'user_info', user: @user %> 
   <div class ="right-wrapper">
 
@@ -23,7 +24,7 @@
       </label>
 
       <div class="tab_content" id="post_content" for="postview">
-        <% @user.posts.each do |t| %>
+        <% @user.posts.first(5).each do |t| %>
         <div class ="postview">
           <p><%= t.product%></p>
           <h4><%= t.title%></h4>              
@@ -31,11 +32,17 @@
           <%= link_to "", post_path(t.id) %>
         </div>
         <% end %>
+        
       </div>
 
       <div class="tab_content" id="foto_content" for="foto">
-        <% @user.fotos.each do |t| %>
-          <div class="fotoview-wrapper">
+        <% if @user.posts.count >= 9 %>
+          <div class ="allview-btn">
+            <a href="/users/<%= @user.id %>/all_posts">すべて見る</a>
+          </div>
+        <% end %>
+        <% @user.fotos.first(9).each do |t| %>
+           <div class="fotoview-wrapper">
             <div class ="fotoview-post">
             <img src=<%= t.image_url %> class= "fotoview">
             <%= link_to "", foto_path(t.id) %>
@@ -48,23 +55,33 @@
       </div>
 
       <div class="tab_content" id="like_content" for="like">
-          <% @user.liked_posts.each do |t| %>
-            <% if t.user.image? %> 
-              <a href="/users/<%= t.user.id %>"><img src=<%= t.user.image %> class = "user-icon"></a>
-            <% else %>
-              <a href="/users/<%= t.user.id %>"><img src="/assets/noicon.jpg" class= "user-icon"></a>   
-            <% end %>
-            <div class ="postview">
-              <p><%= t.product%></p>
-              <h4><%= t.title%></h4>              
-              <p>by <%= t.user.name%></p>
-              <%= link_to "", post_path(t.id) %>
-            </div>
+        <% @user.liked_posts.first(5).each do |t| %>
+          <% if t.user.image? %> 
+            <a href="/users/<%= t.user.id %>"><img src=<%= t.user.image %> class = "user-icon"></a>
+          <% else %>
+            <a href="/users/<%= t.user.id %>"><img src="/assets/noicon.jpg" class= "user-icon"></a>   
           <% end %>
+          <div class ="postview">
+            <p><%= t.product%></p>
+            <h4><%= t.title%></h4>              
+            <p>by <%= t.user.name%></p>
+            <%= link_to "", post_path(t.id) %>
+          </div>
+        <% end %>
+        <% if @user.posts.count >= 5 %>
+          <div class ="allview-btn">
+            <a href="/users/<%= @user.id %>/all_posts">もっと見る</a>
+          </div>
+        <% end %>
       </div>
 
       <div class="tab_content" id="fotolike_content" for="foto-like">
-        <% @user.fotoliked_fotos.each do |t| %>
+        <% if @user.posts.count >= 9 %>
+          <div class ="allview-btn">
+            <a href="/users/<%= @user.id %>/all_posts">すべて見る</a>
+          </div>
+        <% end %>
+        <% @user.fotoliked_fotos.first(9).each do |t| %>
           <div class="fotoview-wrapper">
             <div class ="fotoview-post">
             <img src=<%= t.image_url %> class= "fotoview">
