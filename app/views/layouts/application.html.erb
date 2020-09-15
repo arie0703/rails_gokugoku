@@ -23,6 +23,24 @@
         <% end %>
       </ul>
       </div>
+
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul>
+            <% if user_signed_in? %>
+              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+            <% else %>
+              <li><%= link_to "ログイン", users_sign_in_path %></li>
+            <% end %>
+            <li><%= link_to "飲みメモ",  posts_path %></li>
+            <li><%= link_to 'ギャラリー', fotos_path %></li>
+            <li><%= link_to 'トップページ', root_path %></li>
+          </ul>
+        </div>
+      </div>
     </header>
     <main>
       <%= yield %>

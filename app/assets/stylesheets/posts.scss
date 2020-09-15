@@ -91,7 +91,7 @@ h3 {
 
 .body-container {
     padding-top: 5px;
-    min-height: 100px;
+    min-height: 150px;
     border-top: dotted 1px grey;
 }
 
@@ -113,17 +113,6 @@ h3 {
 /* 詳細 */
 .p-wrapper {
     min-height: 100px;
-}
-
-.comment-wrapper {
-    margin-top: 20px;
-}
-
-.comment {
-    border-radius: 10px;
-    background-color: rgba(255,217,0,0.7);
-    width: 70%;
-    padding: 10px 10px;
 }
 
 .post {
@@ -168,3 +157,44 @@ h3 {
     list-style: none;
 }
 
+
+@media screen and (max-width: 540px) {
+  
+    .posts-container{
+        width: 95%;
+    }
+
+    .posts-container h2 {
+        font-size: 30px;
+    }
+
+    .alcohol {
+        display: block;
+        margin-left: 0;
+    }
+
+    .good-btn {
+        width: 100%;
+    }
+
+    textarea, input[type="text"], #comment_comment {
+        width: 90%;
+    }
+
+    .form-container{
+        width: 100%;
+        margin:0 auto;
+    }
+
+    select {
+        width: 80%;
+        height: 30px;
+    }
+
+
+
+    
+
+
+
+}
