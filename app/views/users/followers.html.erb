@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "users_show", :media => "all" %>
+<div class= "user-wrapper">
+  <%= render 'user_info', user: @user %> 
+  <div class="follow-wrapper">
+  <h2>フォロー中</h2>
+  <% @user.followers.each do |t| %>
+    <div class ="follow-list">
+      <% if t.image? %> 
+        <a href="/users/<%= t.id %>"><img src="<%= t.image %>" class = "icon_image"></a>
+      <% else %>
+      <a href="/users/<%= t.id %>">
+        <img src="/assets/noicon.jpg" class= "icon_image">
+      </a>
+      <% end %>
+      <h4><%= t.name %></h4>
+      
+    </div>
+  <% end %>
+  </div>
+</div>

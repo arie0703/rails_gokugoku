@@ -1,57 +1,278 @@
-.container {
+
+  .user-wrapper {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+  }
+
+  .left-container{
+    padding-top: 20px;
+    height: 600px;
+    display:inline-block;
+    width: 30%;
+    text-align: center;
+  }
+
+  .profile {
     margin: 0 auto;
-    width: 50%;
-}
+    width: 80%;
+    min-height: 150px;
+    border: solid 1px black;
+    border-radius: 20px;
+    padding:10px;
+    text-align: left;
+  }
 
-.top-container {
+  .follow {
+    position: relative;
     height: 100px;
-    padding-top: 10px;
-    margin-bottom: 20px;
-}
+    display: inline-block;
+    padding:15px;
+    width: 45%;
+    box-sizing: border-box;
+  }
 
-.top-container h1 {
-    border-bottom: dashed 5px orange;
-}
+  .follow:hover {
+    opacity: 0.4;
+    transition: 0.4s;
+  }
 
-.top-container p{
-  margin-top:10px;
-}
-
-.user_post h3 {
-    border-bottom: dashed 3px orange;
-    width: 250px;
-}
-
+  .follow a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+  }
 
   
-  .edit {
+  .mymenu {
     position: relative;
-    border: solid 3px orange;
+    border-bottom: solid 1px grey;
     height: 30px;
-    width: 150px;
+    width: 200px;
     z-index: 1;
     text-decoration: none;
-    border-radius: 50px;
-    margin-bottom: 50px;
-  }
-
-  .edit:hover {
-    background-color: orange;
-    transition: 0.5s;
+    margin: 0 auto;
+    text-align: left;
   }
   
-  .edit a {
+  .mymenu a {
     position: absolute;
     text-align: center;
     top: 10%;
     width: 100%;
     z-index: 2;
     text-decoration: none;
-    color: orange;
+    color: grey;
     font-size: 18px;
   }
 
-  .edit a:hover{
-      color: white;
-      transition: 0.5s;
+  .mymenu a:hover{
+    font-weight: bold;
   }
+
+  .like, .foto-like, .postview{
+    margin-top: 10px;
+  }
+
+  .like a, .foto-like a, .postview a{
+    color:grey;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .postview a:hover {
+    color: blue;
+    font-style: bold;
+  }
+
+  .like a:hover {
+    color: red;
+    font-style: bold;
+  }
+
+  .foto-like a:hover {
+    color: green;
+    font-style: bold;
+  }
+  /* アイコン*/
+  .icon_image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    object-fit: cover;
+  }
+  
+  .icon_image:hover{
+    opacity: 0.7;
+  }
+
+  .user-icon { 
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    object-fit: cover;
+    display: inline-block;
+  }
+
+  .user-icon:hover {
+    opacity: 0.7;
+  }
+
+
+  .right-wrapper {
+    display:inline-block;
+    width: 70%;
+  }
+  
+  .tabs{
+    width: 100%;
+  }
+
+  .tabs label {
+    text-align: center;
+  }
+
+  .tab_item {
+    line-height: 50px;
+    width: 25%;
+    text-align: center;
+    float: left;
+    border-bottom: solid 3px orange;
+  }
+
+  input[name="tab_item"] {
+    display: none;
+  }
+
+  .tab_content {
+    display: none;
+    padding: 40px 40px 0;
+    clear: both;
+    overflow: hidden;
+  }
+
+  .tab1:hover {
+    color:blue;
+    font-weight: bold;
+  }
+
+  .tab2:hover {
+    color:pink;
+    font-weight: bold;
+  }
+
+  .tab3:hover {
+    color:red;
+    font-weight: bold;
+  }
+
+  .tab4:hover {
+    color:green;
+    font-weight: bold;
+  }
+  
+  
+  #postview:checked ~ #post_content,
+  #foto:checked ~ #foto_content,
+  #like:checked ~ #like_content,
+  #foto-like:checked ~ #fotolike_content {
+    display: block;
+  }
+
+  .tabs input:checked + .tab_item {
+    background-color: orange;
+    color: #fff;
+  }
+
+  .postview {
+    height: 80px;
+    width: 400px;
+    background-color: rgba(255,217,0,0.7);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    z-index: 1; 
+    display: inline-block;
+  }
+
+  .postview a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2; 
+    }
+
+  .postview:hover {
+    background-color: rgba(255, 217, 0, 0.3);
+    transition: 0.4s;
+  }
+
+.fotoview-wrapper {
+  margin: 0 auto;
+  float: left;
+  width: 33%;
+  margin-bottom: 20px;
+}
+
+
+.fotoview {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.fotoview-post {
+    height: 200px;
+    width: 200px;
+    position: relative;
+    z-index: 1; 
+}
+
+.fotoview-post:hover {
+    opacity: 0.7;
+}
+
+.fotoview-post a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2; 
+}
+
+.fotoview-option {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  display: none;
+}
+
+.fotoview-post:hover > .fotoview-option {
+  display: block;
+}
+
+/* followings, followers */
+
+.follow-wrapper {
+  width: 70%;
+  padding-top: 20px;
+}
+
+.follow-list {
+  display: inline-block;
+  text-align: center;
+  margin: 20px 50px;
+}

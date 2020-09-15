@@ -1,14 +1,12 @@
 class PostsController < ApplicationController
 
     def index
-      if params[:search] == nil
-        @posts= Post.all
-      elsif params[:search] == ''
-        @posts= Post.all
+      if params[:search] != nil && params[:search] != ''
+        @posts = Post.where("product LIKE ? ",'%' + params[:search] + '%') .or Post.where("maker LIKE ? ",'%' + params[:search] + '%') .or Post.where("body LIKE ? ",'%' + params[:search] + '%')
       else
-        #部分検索
-        @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%')
+        @posts = Post.all
       end
+      @posts = Post.page(params[:page]).per(2)
     end
 
     def new
@@ -22,18 +20,15 @@ class PostsController < ApplicationController
       if @post.save
         redirect_to :action => "index"
       else
-        redirect_to :action => "new"
+        render action: :new
       end
     end
 
     def search
-      if params[:search] == nil
-        @posts= Post.all
-      elsif params[:search] == ''
-        @posts= Post.all
+      if params[:search] != nil && params[:search] != ''
+        @posts = Post.where("product LIKE ? ",'%' + params[:search] + '%')
       else
-        #部分検索
-        @posts = Post.where("body LIKE ? ",'%' + params[:search] + '%')
+        @posts = Post.all
       end
     end
 
@@ -55,7 +50,7 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         redirect_to :action => "show", :id => @post.id
       else
-        redirect_to :action => "new"
+        render action: :edit
       end
     end
 
@@ -65,12 +60,13 @@ class PostsController < ApplicationController
       redirect_to action: :index
     end
 
-    before_action :authenticate_user!, except: [:index]
+    #認証　投稿一覧と詳細は認証を外す
+    before_action :authenticate_user!, except: [:index, :show]
     
     private
 
   def post_params
-    params.require(:post).permit(:title,:body,:product,:maker,:rate,:image)
+    params.require(:post).permit(:title,:body,:product,:maker,:rate,:alcohol,:image)
   end
 
 

@@ -1,0 +1,14 @@
+<div class="wrapper-common">
+  <h1>投稿を編集する</h1>
+  <%= form_for @foto do |f| %>
+    <!-- エラーメッセージ -->
+    <%= render 'layouts/error_messages', model: f.object %>
+    <p>タイトル</p>
+    <%= f.text_field :title,size: 80, :class => 'title-form' %><br>
+    <p>本文</p>
+    <%= f.text_area :body,size: 140, :class => 'body-form' %>
+    <p>写真</p>
+    <%= f.file_field :image %>
+    <%= f.submit "編集する", class: "submit-btn" %>
+  <% end %>
+</div>

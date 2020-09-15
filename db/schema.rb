@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_080935) do
+ActiveRecord::Schema.define(version: 2020_09_14_112048) do
 
   create_table "comments", force: :cascade do |t|
     t.string "comment"
@@ -20,6 +20,34 @@ ActiveRecord::Schema.define(version: 2020_09_03_080935) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "fotocomments", force: :cascade do |t|
+    t.string "fotocomment"
+    t.integer "user_id", null: false
+    t.integer "foto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["foto_id"], name: "index_fotocomments_on_foto_id"
+    t.index ["user_id"], name: "index_fotocomments_on_user_id"
+  end
+
+  create_table "fotolikes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "foto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["foto_id"], name: "index_fotolikes_on_foto_id"
+    t.index ["user_id"], name: "index_fotolikes_on_user_id"
+  end
+
+  create_table "fotos", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "body"
+    t.string "title"
+    t.string "image"
+    t.integer "user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -40,7 +68,18 @@ ActiveRecord::Schema.define(version: 2020_09_03_080935) do
     t.string "title"
     t.string "maker"
     t.string "product"
-    t.float "rate"
+    t.integer "rate"
+    t.string "alcohol"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follow_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,12 +92,19 @@ ActiveRecord::Schema.define(version: 2020_09_03_080935) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.text "profile"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "fotocomments", "fotos"
+  add_foreign_key "fotocomments", "users"
+  add_foreign_key "fotolikes", "fotos"
+  add_foreign_key "fotolikes", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
 end

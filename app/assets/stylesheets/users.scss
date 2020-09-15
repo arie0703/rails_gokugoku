@@ -2,3 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+/* ボタンタグ共有 */
+.submit-btn {
+    border: solid 3px orange;
+    height: 36px;
+    width: 156px;
+    z-index: 1;
+    text-decoration: none;
+    border-radius: 50px;
+    background-color: white;
+    color: orange;
+    margin-top: 10px;
+    font-size: 18px;
+    display: block;
+  }
+
+  .submit-btn:hover{
+    background-color: orange;
+    transition: 0.5s;
+    color: white;
+  }

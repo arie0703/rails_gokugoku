@@ -1,0 +1,81 @@
+<div class="posts-container">
+  <h1><%= @foto.title %></h1>
+  <div class="fotos-detail">
+    <%= image_tag @foto.image_url, class: "detail-img" if @foto.image?%>
+    <div class="contributor-info">
+      <% if @foto.user.image? %>
+        <a href="/users/<%= @foto.user.id %>"><img src=<%= @foto.user.image %> class = "user-icon"></a>
+      <% else %>
+        <a href="/users/<%= @foto.user.id %>"><img src="/assets/noicon.jpg" class= "user-icon"></a>   
+      <% end %>
+      <div class="contributor-comment">
+        <p><%= @foto.user.name %></p>
+        <p><%= safe_join(@foto.body.split("\n"),tag(:br)) %></p>
+      </div>
+    </div>
+    <br>
+    <p class="time">投稿日: <%= @foto.created_at.to_s(:datetime_jp) %></p>
+    <h3>いいね: <%= @foto.fotolikes.count %></h3>
+    
+  </div>
+    
+    
+    
+  
+  
+
+  <!-- 投稿者なら編集・削除、それ以外のユーザーならいいねボタンを表示 -->
+  <% if user_signed_in? && current_user.id == @foto.user_id %> 
+    <div class="btn"> 
+      <%= link_to "編集", edit_foto_path(@foto.id) %>
+    </div>
+    <div class="btn">
+      <%= link_to "削除", foto_path(@foto.id), data: { confirm: "投稿を削除しますか？" }, method: :delete %>
+    </div>
+    <% elsif user_signed_in? && current_user.id != @foto.user_id %>
+    <% if current_user.already_fotoliked?(@foto) %>
+      <%= button_to '取り消し', foto_fotolike_path(@foto), class: "good-btn", method: :delete %>
+    <% else %>
+      <%= button_to 'いいね', foto_fotolikes_path(@foto), class: "good-btn" %>
+    <% end %>
+  <% end %>
+
+  <div class="comment-wrapper">
+    <h3>コメント一覧</h3>
+
+    
+    <% @fotocomments.each.with_index(1) do |c, i| %>
+      <!-- 最新コメントとして空のコメントが表示されるバグがあったので、最新コメントが表示されない処理-->
+      <% if i != @fotocomments.size %> 
+        <div class="comment">
+          [<%= i %>]
+          <%= c.user.name unless c.user.blank? %>
+          <% if user_signed_in? && current_user.id == c.user.id %>
+            <%= link_to '削除', foto_fotocomment_path(@foto, c), data: { confirm: "コメントを削除しますか？" }, method: :delete %>
+          <% end %>
+          <br>
+          <%= safe_join(c.fotocomment.split("\n"),tag(:br)) unless c.fotocomment.blank? %>
+        </div>
+        <br>
+        
+      <% end %>
+    <% end %>
+    
+    <% if user_signed_in? %>
+      <p>コメントを投稿する</p>
+      <%= form_with(model: [@foto, @fotocomment], local: true) do |f| %>
+        <%= f.text_area :fotocomment%>
+        <%= button_tag type: "submit", class: "submit-btn" do%>
+          <p>投稿</p>
+        <% end %>
+      <% end %>
+      <% else %>
+      <p>コメントを投稿するにはログインしてください。</p>
+    <% end %>
+  </div>
+  
+  <br>
+  <div class ="btn">
+    <%= link_to "戻る", fotos_path %>
+  </div>
+</div>

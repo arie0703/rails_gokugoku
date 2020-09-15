@@ -1,0 +1,2 @@
+module FoodlikesHelper
+end

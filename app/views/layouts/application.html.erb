@@ -4,7 +4,9 @@
     <title>gokugoku</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
@@ -12,12 +14,12 @@
       <h1><%= link_to "gokugoku", hello_index_path %></h1>
       <div class="header-list">
       <ul>
+        <li><%= link_to "飲みメモ",  posts_path %></li>
+        <li><%= link_to 'ギャラリー', fotos_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <% else %>
         <li><%= link_to "ログイン", users_sign_in_path %></li>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
         <% end %>
       </ul>
       </div>
@@ -25,10 +27,5 @@
     <main>
       <%= yield %>
     </main>
-    <!--
-      <footer>
-       <p>Copyright © K.Arimura All Rights Reserved.</p>
-      </footer>
-    -->
   </body>
 </html>
