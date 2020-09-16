@@ -140,6 +140,29 @@
         justify-content: center; 
     }
 
+    .detail-img {
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+    .contributor-info img{
+        display: none;
+    }
+
+    .contributor-info {
+        display: block;
+    }
+
+    .contributor-comment {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #fotocomment_fotocomment {
+        width: 90%;
+    }
+    
+
 
 
     

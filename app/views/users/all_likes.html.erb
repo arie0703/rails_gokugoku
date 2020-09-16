@@ -1,7 +1,5 @@
 <div class ="allview-wrapper">
-  <div class ="allview-btn">
-    <%= link_to "戻る", :back %>
-  </div>
+  <h1>いいねしたメモ</h1>
   <% @user.liked_posts.each do |t| %>
     <div class ="postview">
       <p><%= t.product%></p>
