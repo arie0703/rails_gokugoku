@@ -1,11 +1,11 @@
 
   .user-wrapper {
-    width: 80%;
+    width: 85%;
     margin: 10px auto;
     display: flex;
   }
 
-  .left-container{
+  .left-wrapper{
     padding-top: 20px;
     height: 600px;
     display:inline-block;
@@ -121,6 +121,8 @@
     opacity: 0.7;
   }
 
+  /* マイページの右部分・投稿一覧のタブのプロパティ*/
+
 
   .right-wrapper {
     display:inline-block;
@@ -149,7 +151,7 @@
 
   .tab_content {
     display: none;
-    padding: 40px 40px 0;
+    padding: 20px 40px 0;
     clear: both;
     overflow: hidden;
   }
@@ -195,6 +197,10 @@
     padding: 10px;
     position: relative;
     z-index: 1; 
+    
+  }
+
+  #like_content .postview {
     display: inline-block;
   }
 
@@ -214,9 +220,9 @@
   }
 
 .fotoview-wrapper {
-  margin: 0 auto;
-  float: left;
-  width: 33%;
+  display: inline-block;
+  width: auto;
+  min-width: 32%;
   margin-bottom: 20px;
 }
 
@@ -232,11 +238,13 @@
     width: 200px;
     position: relative;
     z-index: 1; 
+    margin: 0 auto;
 }
 
 .fotoview-post:hover {
     opacity: 0.7;
 }
+
 
 .fotoview-post a {
     position: absolute;
@@ -247,6 +255,7 @@
     text-indent:-999px;
     z-index: 2; 
 }
+
 
 .fotoview-option {
   position: absolute;
@@ -264,6 +273,35 @@
   display: block;
 }
 
+/*　--------全て見るのページ-------- */
+
+.allview-wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.allview-wrapper h1 {
+  text-align: center;
+  border-bottom: dashed 3px orange;
+  margin-bottom: 10px;
+}
+
+.allview-wrapper .postview{
+  margin: 10px auto;
+}
+
+.allview-wrapper .fotoview-wrapper{
+  width: 25%;
+}
+
+.allview-wrapper .allview-btn {
+  text-align: center;
+}
+
+.allview-wrapper .allview-btn a {
+  padding: 10px 30px;
+}
+
 /* followings, followers */
 
 .follow-wrapper {
@@ -275,4 +313,139 @@
   display: inline-block;
   text-align: center;
   margin: 20px 50px;
+}
+
+.mob-wrapper {
+  display: none;
+}
+
+
+/*　モバイル */
+
+@media screen and (max-width: 800px) {
+
+  .right-wrapper {
+    display: none;
+  }
+
+  .left-wrapper {
+    margin: 0 auto;
+    display: block;
+    width: 90%;
+  }
+
+  .mob-wrapper {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mob-wrapper li {
+    margin: 10px auto;
+    list-style: none;
+    display: inline-block;
+    background-color: orange;
+    width: 20%;
+    text-decoration: none;
+  }
+
+  .mob-wrapper li a {
+    line-height: 80px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+  }
+
+  .user-wrapper {
+    width: 100%;
+    display: block;
+    
+  }
+
+  /* 投稿一覧ページ*/
+
+  .allview-wrapper .postview{
+    width: 60%;
+  }
+
+  .fotoview-wrapper {
+    min-width: 200px;
+    display: block;
+    margin: 20px auto;
+  }
+  
+
+
+}
+
+@media screen and (max-width: 540px) {
+
+  
+
+  .mob-wrapper li {
+    display: block;
+    width: 90%;
+  }
+
+  .mob-wrapper li a {
+    line-height: 60px;
+  }
+  
+
+
+
+  .left-wrapper {
+    width: 95%;
+  }
+
+
+  .user-wrapper {
+    width: 100%;
+  }
+
+  .follow {
+    width: auto;
+  }
+
+  /* フォロー・フォロワーリスト */
+  /*　ユーザープロフィールを覆い隠して、画面上部に表示 */
+  .follow-wrapper{
+    position: absolute;
+    background-color: white;
+    display: block;
+    width: 100%;
+    top: 70px;
+    left: 0;
+    z-index: 3;
+    min-height: 700px;
+    text-align: center;
+  }
+
+  .follow-list {
+    display: block;
+    margin: 20px auto;
+  }
+
+
+  /* もっと見る */
+
+  .allview-wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .allview-wrapper h1 {
+    text-align: center;
+  }
+
+  .allview-wrapper .postview {
+    display: block;
+    width: 90%;
+    margin:　20px auto;
+  }
+
+  
+
 }

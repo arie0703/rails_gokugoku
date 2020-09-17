@@ -2,7 +2,7 @@
 <div class= "user-wrapper">
   <%= render 'user_info', user: @user %> 
   <div class="follow-wrapper">
-  <h2>フォロー中</h2>
+  <h2>フォロワー</h2>
   <% @user.followers.each do |t| %>
     <div class ="follow-list">
       <% if t.image? %> 

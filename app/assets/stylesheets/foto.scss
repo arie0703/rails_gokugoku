@@ -11,8 +11,9 @@
 
 .foto-wrapper {
     margin: 20px auto;
-    float: left;
-    width: 33%;
+    display: inline-block;
+    width: auto;
+    min-width: 32%;
 }
 
 
@@ -86,6 +87,9 @@
     display: inline-block;
 }
 
+
+
+
 /* ここから投稿詳細ページ　*/
 
 .fotos-detail {
@@ -115,6 +119,55 @@
     border-radius: 10px;
     margin-left: 20px;
 }
+
+
+/* スマホ用css */
+@media screen and (max-width: 540px) {
+
+    .gallery-container {
+        width: 95%;
+    }
+
+    .foto-wrapper {
+        width: 100%;
+    }
+
+    .foto-post {
+        margin: 0 auto;
+    }
+
+    .foto-user{
+        justify-content: center; 
+    }
+
+    .detail-img {
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+    .contributor-info img{
+        display: none;
+    }
+
+    .contributor-info {
+        display: block;
+    }
+
+    .contributor-comment {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #fotocomment_fotocomment {
+        width: 90%;
+    }
+    
+
+
+
+    
+}
+
 
 
 

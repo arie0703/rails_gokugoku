@@ -1,8 +1,7 @@
-<%= stylesheet_link_tag 'new', :media => "all" %>
+<%= stylesheet_link_tag 'posts', :media => "all" %>
 
-<div class="container">
-    <p class="title">投稿フォーム</p>
-
+<div class="posts-container">
+    <h1>投稿する</h1>
     <div class="form-container">
       <%= form_for @post do |f| %>
       <!-- エラーメッセージ -->
@@ -24,6 +23,5 @@
       <%= f.submit "送信", class: "submit-btn"%>
       <% end %>
     </div>
-       
     
 </div>

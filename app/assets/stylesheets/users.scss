@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 /* ボタンタグ共有 */
-.submit-btn {
+  .submit-btn {
     border: solid 3px orange;
     height: 36px;
     width: 156px;
@@ -22,3 +22,26 @@
     transition: 0.5s;
     color: white;
   }
+
+
+  .session-wrapper {
+    width: 50%;
+    margin: 10px auto;
+  }
+
+  .session-wrapper h1 {
+    border-bottom: dashed 5px orange;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 540px) {
+
+    .session-wrapper {
+      width: 95%;
+    }
+
+    .session-wrapper .submit-btn {
+      margin: 10px 0;
+    }
+  }
+

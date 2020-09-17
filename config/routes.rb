@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   
   get 'users/:id/all_posts' => 'users#all_posts'
 
+  get 'users/:id/all_fotos' => 'users#all_fotos'
+
+  get 'users/:id/all_likes' => 'users#all_likes'
+
+  get 'users/:id/all_fotolikes' => 'users#all_fotolikes'
+
   get 'users/:id/followings' => 'users#followings'
 
   get 'users/:id/followers' => 'users#followers'
