@@ -24,20 +24,21 @@
   }
 
 
-  .session_wrapper {
+  .session-wrapper {
     width: 50%;
     margin: 10px auto;
   }
 
-  .session_wrapper h1 {
+  .session-wrapper h1 {
     border-bottom: dashed 5px orange;
     margin-bottom: 10px;
   }
 
   @media screen and (max-width: 540px) {
 
-    .session_wrapper {
+    .session-wrapper {
       width: 95%;
+      text-align: center;
     }
   }
 

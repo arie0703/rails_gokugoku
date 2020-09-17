@@ -1,6 +1,6 @@
 
   .user-wrapper {
-    width: 80%;
+    width: 85%;
     margin: 10px auto;
     display: flex;
   }
@@ -322,7 +322,7 @@
 
 /*　モバイル */
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
 
   .right-wrapper {
     display: none;
