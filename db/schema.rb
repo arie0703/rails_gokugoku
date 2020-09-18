@@ -12,6 +12,30 @@
 
 ActiveRecord::Schema.define(version: 2020_09_14_112048) do
 
+  create_table "beercomments", force: :cascade do |t|
+    t.string "beercomment"
+    t.integer "user_id", null: false
+    t.integer "beer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_beercomments_on_beer_id"
+    t.index ["user_id"], name: "index_beercomments_on_user_id"
+  end
+
+  create_table "beerlikes", force: :cascade do |t|
+    t.integer "beer_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_beerlikes_on_beer_id"
+    t.index ["user_id"], name: "index_beerlikes_on_user_id"
+  end
+
+  create_table "beers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "comment"
     t.integer "user_id", null: false
@@ -48,6 +72,30 @@ ActiveRecord::Schema.define(version: 2020_09_14_112048) do
     t.string "title"
     t.string "image"
     t.integer "user_id"
+  end
+
+  create_table "highballs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "highcomments", force: :cascade do |t|
+    t.string "highcomment"
+    t.integer "user_id", null: false
+    t.integer "highball_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["highball_id"], name: "index_highcomments_on_highball_id"
+    t.index ["user_id"], name: "index_highcomments_on_user_id"
+  end
+
+  create_table "highlikes", force: :cascade do |t|
+    t.integer "highball_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["highball_id"], name: "index_highlikes_on_highball_id"
+    t.index ["user_id"], name: "index_highlikes_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
