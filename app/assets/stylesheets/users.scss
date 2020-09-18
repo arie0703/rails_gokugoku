@@ -33,6 +33,38 @@
     border-bottom: dashed 5px orange;
     margin-bottom: 10px;
   }
+  
+  .twitter-login {
+    margin-bottom: 10px;
+  }
+
+  /* Twitterログインボタン */
+  .api_link {
+    display: block;
+    width: 140px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 172, 237, 1);
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .api_link:hover {
+    background-color: rgba(0, 172, 237, 0.8);
+    transition: 0.4s;
+  }
+
+  /*新規登録などのリンク*/
+  .session_link {
+    text-decoration: none;
+    color: grey;
+  }
+
+  .session_link:hover{
+    opacity: 0.9;
+  }
 
   @media screen and (max-width: 540px) {
 

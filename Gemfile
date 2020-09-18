@@ -65,6 +65,9 @@ gem 'jquery-rails'
 gem 'bootstrap'
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 
 group :production do
   gem 'pg' #herokuでのデータベース
