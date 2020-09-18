@@ -1,25 +1,24 @@
-# README
+・開発環境
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby 2.6.2
+Ruby on rails 6.0.3.3
+SQLite 3
 
-Things you may want to cover:
+・サービス概要
 
-* Ruby version
+「オンライン飲み会」をする人が増えている中、コンビニやスーパーで買えるお酒の情報共有サイトがあれば便利だと考え、
+制作しました。
+飲んだお酒についての評価を投稿したり、自宅での飲み方を写真で共有することができます。
 
-* System dependencies
+・実装した機能
 
-* Configuration
+deviceによる認証機能
+Twitter APIによる認証
+ユーザーマイページ機能
+relationモデルによるフォロー機能
+投稿機能 + Cloudinaryによる写真投稿
+Gem(kaminari)を使用したページネーション機能
+投稿にいいね・コメントが付けられる機能
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# rails_gokugoku
+・heroku URL
+https://gokugoku.herokuapp.com/
