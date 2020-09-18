@@ -22,8 +22,13 @@
     <div class="actions">
       <%= f.submit "ログイン" , class: "submit-btn"%>
     </div>
-  <% end %>
 
+  
+  <% end %>
+  <div class ="twitter-login">
+  <%= link_to 'Twitterでログイン', user_twitter_omniauth_authorize_path, class: "api_link"%>
+  <p>Twitterアカウントで登録すると、次回から簡単にログインできます。</p>
+  </div>
   <%= render "users/shared/links" %>
 
 </div>
