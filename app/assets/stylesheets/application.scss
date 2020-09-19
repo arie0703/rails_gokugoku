@@ -73,15 +73,36 @@
   footer {
     color: white;
     background-color: #000;
-    height: 30px;
+    height: 70px;
     width: 100%;
     display: flex;
-    align-items: center;
-    margin-top: auto;
-    position: fixed;
+    align-items: center; //文字が要素の真ん中に
+    margin-top: 30px;
     bottom: 0;
-    justify-content: flex-end;
   }
+
+  .footer-logo {
+    padding: 20px;
+  }
+
+  .footer-sns {
+    display: flex;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .twitter-share {
+    background-color: rgba(0, 172, 237, 1);
+    width: 80px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+
+
 
   textarea {
     resize: none;
@@ -114,31 +135,6 @@
 #nav-drawer {
   display: none;
 }
-
-  /* ボタンのプロパティ */
-
-  /*
-  input[type="submit"], button{
-    border: solid 3px orange;
-    height: 36px;
-    width: 156px;
-    z-index: 1;
-    text-decoration: none;
-    border-radius: 50px;
-    background-color: white;
-    color: orange;
-    margin-top: 10px;
-    font-size: 18px;
-    display: block;
-  }
-
-  input[type="submit"]:hover, button:hover{
-    background-color: orange;
-    transition: 0.5s;
-    color: white;
-  }
-  */
-
 
   /* 共通CSS */
 
@@ -194,7 +190,7 @@
       transform: translateY(-105%);/*上に隠しておく*/
     }
 
-
+    // ハンバーガーメニューのリスト
     #nav-drawer li {
       display: block;
       text-align: center;
@@ -224,7 +220,7 @@
       vertical-align: middle;
     }
     
-    /*ハンバーガーアイコンをCSSだけで表現*/
+    /*ハンバーガーメニューのアイコン*/
     #nav-open span, #nav-open span:before, #nav-open span:after {
       position: absolute;
       height: 4px;/*線の太さ*/
@@ -269,8 +265,28 @@
     }
 
   
+  //フッター
+
+
+
+  footer {
+    height: auto;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-sns {
+    justify-content: center;
+    margin-right: 0;
+  }
   
-  
-  
+  .twitter-share, .line-it-button {
+    margin-bottom: 10px;
+  }
+
+
+
   
   }

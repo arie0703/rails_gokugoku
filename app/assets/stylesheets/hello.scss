@@ -1,9 +1,10 @@
-// Place all the styles related to the hello controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+//トップページのCSS
+
 .intro {
     position: relative;
 }
+
+//トップの画像プロパティ
 
 .intro img {
   width: 100%;
@@ -39,6 +40,8 @@
     text-align: center;
     display: flex;
 }
+
+//飲みメモ・ギャラリーの選択画面
 
 .block {
     width: 50%;

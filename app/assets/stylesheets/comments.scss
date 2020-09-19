@@ -16,11 +16,11 @@
 
 .comment a {
     text-decoration: none;
-    color: darkblue;
+    color: grey;
 }
 
 .comment a:hover {
-    color: orangered;
+    opacity: 0.9;
 }
 
 @media screen and (max-width: 540px) {
