@@ -24,11 +24,14 @@
       </ul>
       </div>
 
+      <!-- ハンバーガーメニュー　PCでは非表示-->
       <div id="nav-drawer">
         <input id="nav-input" type="checkbox" class="nav-unshown">
         <label id="nav-open" for="nav-input"><span></span></label>
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-        <div id="nav-content">
+      <div id="nav-content">
+
+      <!-- PC用メニュー　スマホでは非表示-->
           <ul>
             <% if user_signed_in? %>
               <li><%= link_to "マイページ", user_path(current_user.id) %></li>
@@ -45,5 +48,23 @@
     <main>
       <%= yield %>
     </main>
+    <footer>
+      <div class="footer-logo">
+        <h2>gokugoku</h2>
+      </div>
+
+      <div class="footer-sns">
+
+        <!-- Twitter -->
+        <a href="http://twitter.com/share?url=gokugoku.herokuapp.com/&hashtags=gokugokuで宅飲みライフを共有しよう！" class="twitter-share">
+          <i class="fab fa-twitter"></i>ツイート
+        </a>
+
+        <!-- Line -->
+        <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="https://gokugoku.herokuapp.com/" data-color="default" data-size="large" data-count="false" style="display: inline-block;"></div>
+        <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+        
+      </div>
+    </footer>
   </body>
 </html>
