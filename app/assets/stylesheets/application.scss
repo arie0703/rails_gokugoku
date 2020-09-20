@@ -72,17 +72,18 @@
 
   footer {
     color: white;
-    background-color: #000;
-    height: 70px;
+    background-color: black;
+    height: 60px;
     width: 100%;
     display: flex;
     align-items: center; //文字が要素の真ん中に
-    margin-top: 30px;
-    bottom: 0;
+    margin-top: auto;
+    bottom: 0px;
   }
 
   .footer-logo {
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .footer-sns {
@@ -93,7 +94,7 @@
 
   .twitter-share {
     background-color: rgba(0, 172, 237, 1);
-    width: 80px;
+    width: 85px;
     display: inline-block;
     text-decoration: none;
     color: white;
