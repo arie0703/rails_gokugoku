@@ -16,14 +16,14 @@
     </div>
 
     <div class="field">
-      <%= f.label :image %>
+      <%= f.label :プロフィール画像 %>
       <%= f.file_field :image %>
     </div>
     
     <div class="field">
       <%= f.label :パスワード %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(最低<%= @minimum_password_length %>文字入力してください。)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password" %>
     </div>
