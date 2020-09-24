@@ -23,7 +23,7 @@
     min-height: 100vh;
     letter-spacing: 0.2px;
     position: relative; 
-    font-family: "Hiragino Kaku Gothic Pro", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+    font-family: "ヒラギノ角ゴ ProN", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
     display: flex;
     flex-direction: column;
   }
@@ -109,26 +109,8 @@
     font: normal 15px "ＭＳ 明朝";
   }
 
-/* ボタンタグ共有 */
-.submit-btn {
-  border: solid 3px orange;
-  height: 36px;
-  width: 156px;
-  z-index: 1;
-  text-decoration: none;
-  border-radius: 50px;
-  background-color: white;
-  color: orange;
-  margin-top: 10px;
-  font-size: 18px;
-  display: block;
-}
 
-.submit-btn:hover{
-  background-color: orange;
-  transition: 0.5s;
-  color: white;
-}
+
 
 /*　ハンバーガーメニュー・PCでは非表示 */
 
