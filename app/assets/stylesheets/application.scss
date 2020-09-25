@@ -36,39 +36,45 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    a{
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+  
+    h1 a{
+      padding: 15px 20px;
+    }
+
   }
 
-  header a{
-    text-decoration: none;
-    color: white;
-    display: block;
-  }
-
-  header h1 a{
-    padding: 15px 20px;
-  }
+  
 
   .header-list {
     display: flex;
     align-items: center;
-  }
-  
-  .header-list a {
-    padding: 22px 15px;
-  }
 
-  .header-list ul {
-    display: flex; 
-  }
-  .header-list li {
-    list-style: none;
-    padding: 30px 0;
+    a {
+      padding: 22px 15px;
+    }
+
+    ul {
+      display: flex; 
+    }
+
+    li {
+      list-style: none;
+      padding: 30px 0;
+    }
+    
+    li a:hover{
+      background-color: orange;
+      transition: 0.4s;
+    }
+
   }
   
-  .header-list li a:hover{
-    background-color: orange;
-    transition: 0.4s;
-  }
 
   footer {
     color: white;

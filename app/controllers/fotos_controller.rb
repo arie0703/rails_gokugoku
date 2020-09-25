@@ -6,7 +6,7 @@ class FotosController < ApplicationController
         else
           @fotos = Foto.all
         end
-        @fotos = Foto.all.page(params[:page]).per(6)
+        @fotos = Foto.all.page(params[:page]).per(12)
       end
   
       def new
