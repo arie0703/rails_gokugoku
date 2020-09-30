@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'foto', :media => "all" %>
 
 <div class="gallery-container">
-  <h1>ギャラリー</h1>
+  <h1>Gokugoku Gallery</h1>
   <p>あなたの宅飲みライフを写真でシェアしましょう！</p>
     <div class="btn-container">
       <div class="btn">
@@ -13,25 +13,27 @@
     </div>
 
 <!--投稿表示-->
-  <% @fotos.each do |t| %>
-    <div class="foto-wrapper">
-      <div class ="foto-post">
-      <img src=<%= t.image_url %> class= "gallery-foto">
-      <%= link_to "", foto_path(t.id) %>
-        <div class="foto-option">
-          <h4>♡ <%= t.fotoliked_users.count %></h4>
+  <div class="foto-container">
+    <% @fotos.each do |t| %>
+      <div class="foto-wrapper">
+        <div class ="foto-post">
+        <img src=<%= t.image_url %> class= "gallery-foto">
+        <%= link_to "", foto_path(t.id) %>
+          <div class="foto-option">
+            <h4>♡ <%= t.fotoliked_users.count %></h4>
+          </div>
+        </div>
+        <div class="foto-user">
+            <% if t.user.image? %>
+              <img src=<%= t.user.image %> class = "mini-icon">
+            <% else %>
+              <img src="/assets/noicon.jpg" class= "mini-icon">
+            <% end %>
+            <p><%= t.user.name %></p>
         </div>
       </div>
-      <div class="foto-user">
-          <% if t.user.image? %>
-            <img src=<%= t.user.image %> class = "mini-icon">
-          <% else %>
-            <img src="/assets/noicon.jpg" class= "mini-icon">
-          <% end %>
-          <p><%= t.user.name %></p>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   <%= paginate @fotos %>
 
   
