@@ -4,49 +4,51 @@
 .posts-container {
     width: 50%;
     margin: 10px auto;
+
+    h1 {
+        border-bottom: dashed 5px orange;
+        margin-bottom: 10px;
+    }
+    
+    .btn-container {
+        margin-top: 70px;
+    }
+    
+    /* リンクタグをボタンにする処理 */
+    .btn {
+        display: inline-block;
+        position: relative;
+        border: solid 3px orange;
+        height: 30px;
+        width: 150px;
+        z-index: 1;
+        text-decoration: none;
+        border-radius: 50px;
+    }
+    
+    .btn:hover {
+        background-color: orange;
+        transition: 0.5s;
+    }
+    
+    .btn a {
+        position: absolute;
+        text-align: center;
+        top: 10%;
+        width: 100%;
+        z-index: 2;
+        text-decoration: none;
+        color: orange;
+        font-size: 18px;
+    }
+    
+    .btn a:hover{
+          color: white;
+          transition: 0.5s;
+    }
 }
 
-.posts-container h1 {
-    border-bottom: dashed 5px orange;
-    margin-bottom: 10px;
-}
 
-.btn-container {
-    margin-top: 70px;
-}
-
-/* リンクタグをボタンにする処理 */
-.btn {
-    display: inline-block;
-    position: relative;
-    border: solid 3px orange;
-    height: 30px;
-    width: 150px;
-    z-index: 1;
-    text-decoration: none;
-    border-radius: 50px;
-}
-
-.btn:hover {
-    background-color: orange;
-    transition: 0.5s;
-}
-
-.btn a {
-    position: absolute;
-    text-align: center;
-    top: 10%;
-    width: 100%;
-    z-index: 2;
-    text-decoration: none;
-    color: orange;
-    font-size: 18px;
-}
-
-.btn a:hover{
-      color: white;
-      transition: 0.5s;
-}
 
 /*　いいねボタン　*/
 

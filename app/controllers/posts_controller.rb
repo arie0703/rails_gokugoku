@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
 
     def index
+      #検索機能
       if params[:search] != nil && params[:search] != ''
         @posts = Post.where("product LIKE ? ",'%' + params[:search] + '%') .or Post.where("maker LIKE ? ",'%' + params[:search] + '%') .or Post.where("body LIKE ? ",'%' + params[:search] + '%')
       else
         @posts = Post.all
       end
-      @posts = Post.page(params[:page]).per(2)
+      #ページネーション 
+      @pagination = Post.page(params[:page]).per(10)
     end
 
     def new
@@ -21,14 +23,6 @@ class PostsController < ApplicationController
         redirect_to :action => "index"
       else
         render action: :new
-      end
-    end
-
-    def search
-      if params[:search] != nil && params[:search] != ''
-        @posts = Post.where("product LIKE ? ",'%' + params[:search] + '%')
-      else
-        @posts = Post.all
       end
     end
 
