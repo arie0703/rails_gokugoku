@@ -1,8 +1,9 @@
-<div class="posts-container">
-  <h1>投稿を検索</h1>
-  <p>キーワードを入力して検索する</p>
+<div class="gallery-container">
+  <h1>Search Fotos</h1>
+  <div class="search-form">
   <%= form_tag({controller:"fotos",action:"index"}, method: :get) do %>
     <%= text_field_tag :search %>
     <%= submit_tag '検索', class:"submit-btn" %>
   <% end %>
+  </div>
 </div>

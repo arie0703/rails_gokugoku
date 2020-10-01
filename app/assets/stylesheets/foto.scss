@@ -50,7 +50,27 @@
         opacity: 0.7;
         transition: 0.5s;
     }
+
+
+    .form-container {
+        margin: 0 auto;
+
+        .title-form, .body-form, .submit-btn, .image-form {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .title-form, .body-form {
+            width: 400px;
+        }
+    }
     
+    .search-form {
+        #search, .submit-btn {
+            margin: 20px auto;
+            display: block;
+        }
+    }
 
 }
 
@@ -143,6 +163,8 @@
 
 
 
+
+
 /* ここから投稿詳細ページ　*/
 
 .fotos-detail {
@@ -179,6 +201,14 @@
 
     .gallery-container {
         width: 95%;
+
+
+        .form-container {
+
+            .title-form, .body-form {
+                width: 95%;
+            }
+        }
     }
 
     .foto-container {
@@ -218,6 +248,7 @@
     #fotocomment_fotocomment {
         width: 90%;
     }
+
     
 
 

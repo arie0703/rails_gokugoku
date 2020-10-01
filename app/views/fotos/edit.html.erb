@@ -1,14 +1,15 @@
-<div class="posts-container">
-  <h1>投稿を編集する</h1>
-  <%= form_for @foto do |f| %>
-    <!-- エラーメッセージ -->
-    <%= render 'layouts/error_messages', model: f.object %>
-    <p>タイトル</p>
-    <%= f.text_field :title,size: 80, :class => 'title-form' %><br>
-    <p>本文</p>
-    <%= f.text_area :body,size: 140, :class => 'body-form' %>
-    <p>写真</p>
-    <%= f.file_field :image %>
-    <%= f.submit "編集する", class: "submit-btn" %>
-  <% end %>
+<div class="gallery-container">
+    <h1 class="title">Edit Post</h1>
+
+    <div class="form-container">
+      <%= form_for @foto do |f| %>
+      <!-- エラーメッセージ -->
+      <%= render 'layouts/error_messages', model: f.object %>
+      <%= f.text_field :title,size: 140, :class => 'title-form', :placeholder => 'タイトル' %>
+      <%= f.text_area :body,size: 140, :class => 'body-form' %>
+      <p>写真</p>
+      <%= f.file_field :image, :class => 'image-form' %>
+      <%= f.submit "Post", class: "submit-btn" %>
+      <% end %>
+    </div>
 </div>
