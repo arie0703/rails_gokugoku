@@ -17,14 +17,14 @@
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "ログイン" , class: "submit-btn"%>
+      <%= f.submit "ログイン" , class: "login-btn"%>
     </div>
 
   
   <% end %>
   <div class ="twitter-login">
   <%= link_to 'Twitterでログイン', user_twitter_omniauth_authorize_path, class: "api_link"%>
-  <p>Twitterアカウントで登録すると、次回から簡単にログインできます。</p>
+  <i class="fab fa-twitter"></i>
   </div>
   <%= render "users/shared/links" %>
 

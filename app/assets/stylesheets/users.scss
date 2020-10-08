@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+.login-btn {
+  border: none;
+  height: 36px;
+  width: 280px;
+  z-index: 1;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color: orange;
+  color: white;
+  margin-top: 10px;
+  font-size: 16px;
+  display: block;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.login-btn:hover{
+  opacity: 0.7;
+  transition: 0.5s;
+}
 /* ボタンタグ共有 */
   .submit-btn {
     border: none;
@@ -54,12 +74,14 @@
 
     .api_link {
       display: block;
-      width: 140px;
+      font-family: Avenir;
+      width: 280px;
       text-decoration: none;
       color: white;
       background-color: rgba(0, 172, 237, 1);
-      padding: 8px;
-      border-radius: 5px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 3px;
       margin: 15px auto;
       box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     }
@@ -79,7 +101,7 @@
       opacity: 0.9;
     }
 
-    .submit-btn {
+    .login-btn {
       margin: 10px auto;
     }
 
@@ -95,7 +117,7 @@
     .session-wrapper {
       width: 95%;
 
-      .submit-btn {
+      .login-btn {
         margin: 10px auto;
       }
 
