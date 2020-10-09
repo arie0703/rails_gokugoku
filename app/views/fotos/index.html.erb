@@ -23,13 +23,15 @@
             <h4>♡ <%= t.fotoliked_users.count %></h4>
           </div>
         </div>
-        <div class="foto-user">
-            <% if t.user.image? %>
-              <img src=<%= t.user.image %> class = "mini-icon">
-            <% else %>
-              <img src="/assets/noicon.jpg" class= "mini-icon">
-            <% end %>
-            <p><%= t.user.name %></p>
+        <div class="foto-info">
+          <div class="foto-user">
+              <% if t.user.image? %>
+                <img src=<%= t.user.image %> class = "mini-icon">
+              <% else %>
+                <img src="/assets/noicon.jpg" class= "mini-icon">
+              <% end %>
+              <p><%= t.user.name %></p>
+          </div>
         </div>
       </div>
     <% end %>
