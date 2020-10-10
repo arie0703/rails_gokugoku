@@ -20,10 +20,9 @@
   }
 
   body {
-    min-height: 100vh;
     letter-spacing: 0.2px;
     position: relative; 
-    font-family: "ヒラギノ角ゴ ProN", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+    font-family: "ヒラギノ角ゴ ProN", "Secular One", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
     display: flex;
     flex-direction: column;
   }

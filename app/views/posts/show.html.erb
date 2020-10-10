@@ -1,102 +1,125 @@
 <div class="posts-container">
-  <h1><%= @post.title %></h1>
+  <p class="page-title"><%= @post.title %></p>
   <div class="p-wrapper">
-    <p>投稿者: <a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a></p>
-    <p>商品名: <%= @post.product %></p>
-    <p>メーカー: <%= @post.maker %></p>
-    <p>度数: <%= @post.alcohol%></p>
-    <p>評価: 
-    <% if @post.rate == 1 %>
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-off">
-      <img src ="/assets/star-off">
-      <img src ="/assets/star-off">
-      <img src ="/assets/star-off">
-    <% elsif @post.rate == 2%>
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-off">
-      <img src ="/assets/star-off">
-      <img src ="/assets/star-off">
-    <% elsif @post.rate == 3%>
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-off">
-      <img src ="/assets/star-off">
-    <% elsif @post.rate == 4%>
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-off">
-    <% elsif @post.rate == 5%>
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-      <img src ="/assets/star-on">
-    <% end %>
-    </p>
-    <div class="body-container">
-      <%= safe_join(@post.body.split("\n"),tag(:br)) %><br>
-      <%= image_tag @post.image_url if @post.image? %>  
-    </div>
-  </div>
-  <p class="time">投稿日: <%= @post.created_at.to_s(:datetime_jp) %></p>
-  <h3>いいね: <%= @post.likes.count %></h3>
-
-  <!-- 投稿者なら編集・削除、それ以外のユーザーならいいねボタンを表示 -->
-  <% if user_signed_in? && current_user.id == @post.user_id %> 
-    <div class="btn"> 
-      <%= link_to "編集", edit_post_path(@post.id) %>
-    </div>
-    <div class="btn">
-      <%= link_to "削除", post_path(@post.id), data: { confirm: "投稿を削除しますか？" }, method: :delete %>
-    </div>
-  <% elsif user_signed_in? && current_user.id != @post.user_id %>
-    <% if current_user.already_liked?(@post) %>
-      <%= button_to '取り消す', post_like_path(@post), method: :delete, class: "good-btn"%>
-    <% else %>
-      <%= button_to 'いいね！', post_likes_path(@post), class: "good-btn"%>
-    <% end %>
-  <% end %>
-
-  <div class="comment-wrapper">
-    <h3>コメント一覧</h3>
-
-    
-    <% @comments.each.with_index(1) do |c, i| %>
-      <!-- 最新コメントとして空のコメントが表示されるバグがあったので、最新コメントが表示されない処理-->
-      <% if i != @comments.size %> 
-        <div class="comment">
-          [<%= i %>]
-          <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
-          <% if user_signed_in? && current_user.id == c.user.id %>
-            <%= link_to '削除', post_comment_path(@post, c), data: { confirm: "コメントを削除しますか？" }, method: :delete %>
-          <% end %>
-          <br>
-          <%= safe_join(c.comment.split("\n"),tag(:br)) unless c.comment.blank? %>
-        </div>
-        <br>
-        
+    <div class="left-side">
+      <p>商品名: <%= @post.product %></p>
+      <p>メーカー: <%= @post.maker %></p>
+      <p>度数: <%= @post.alcohol%></p>
+      <p> 
+      <% if @post.rate == 1 %>
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-off">
+        <img src ="/assets/star-off">
+        <img src ="/assets/star-off">
+        <img src ="/assets/star-off">
+      <% elsif @post.rate == 2%>
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-off">
+        <img src ="/assets/star-off">
+        <img src ="/assets/star-off">
+      <% elsif @post.rate == 3%>
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-off">
+        <img src ="/assets/star-off">
+      <% elsif @post.rate == 4%>
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-off">
+      <% elsif @post.rate == 5%>
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
+        <img src ="/assets/star-on">
       <% end %>
-    <% end %>
-    
-    <% if user_signed_in? %>
-      <p>コメントを投稿する</p>
-      <%= form_with(model: [@post, @comment], local: true) do |f| %>
-        <%= f.text_area :comment%>
-        <%= button_tag type: "submit", class: "submit-btn" do%>
-          <p>投稿</p>
+      </p>
+      <p><%= safe_join(@post.body.split("\n"),tag(:br)) %></p>
+    </div>
+    <div class="right-side">
+      <div class="img-wrapper">
+        <div class="img-tape"></div>
+
+        <% if @post.image? %>
+          <%= image_tag @post.image_url %>
+        <% else %>
+          <img src="/assets/noimage.png">
+        <% end %>
+      </div>
+    </div>
+
+    <div class="bottom-side">
+      <p><%= @post.created_at.to_s(:datetime_jp) %></p>
+      <div class="user-info">
+        <% if @post.user.image? %>
+          <a href="/users/<%= @post.user.id %>"><img src=<%= @post.user.image %> class = "user-icon"></a>
+        <% else %>
+          <a href="/users/<%= @post.user.id %>"><img src="/assets/noicon.jpg" class= "user-icon"></a>   
+        <% end %>
+        <a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a>
+      </div>
+
+      <p class="like"><i class="fas fa-heart"></i> <%= @post.likes.count %></p>
+      <!-- 投稿者なら編集・削除、それ以外のユーザーならいいねボタンを表示 -->
+      <% if user_signed_in? && current_user.id == @post.user_id %> 
+        <div class="btn"> 
+          <%= link_to "編集", edit_post_path(@post.id) %>
+        </div>
+        <div class="btn">
+          <%= link_to "削除", post_path(@post.id), data: { confirm: "投稿を削除しますか？" }, method: :delete %>
+        </div>
+      <% elsif user_signed_in? && current_user.id != @post.user_id %>
+        <% if current_user.already_liked?(@post) %>
+          <%= button_to '取り消す', post_like_path(@post), method: :delete, class: "good-btn"%>
+        <% else %>
+          <%= button_to 'いいね！', post_likes_path(@post), class: "good-btn"%>
         <% end %>
       <% end %>
-      <% else %>
-      <p>コメントを投稿するにはログインしてください。</p>
-    <% end %>
-  </div>
-  <br>
-  <div class ="btn">
-    <%= link_to "戻る", posts_path %>
+
+    </div>
+
+  
+
+    <div class="comment-wrapper">
+      <h3>コメント一覧</h3>
+
+      
+      <% @comments.each.with_index(1) do |c, i| %>
+        <!-- 最新コメントとして空のコメントが表示されるバグがあったので、最新コメントが表示されない処理-->
+        <% if i != @comments.size %> 
+          <div class="comment">
+            [<%= i %>]
+            <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
+            <% if user_signed_in? && current_user.id == c.user.id %>
+              <%= link_to '削除', post_comment_path(@post, c), data: { confirm: "コメントを削除しますか？" }, method: :delete %>
+            <% end %>
+            <br>
+            <%= safe_join(c.comment.split("\n"),tag(:br)) unless c.comment.blank? %>
+          </div>
+          <br>
+          
+        <% end %>
+      <% end %>
+      
+      <% if user_signed_in? %>
+        <p>コメントを投稿する</p>
+        <%= form_with(model: [@post, @comment], local: true) do |f| %>
+          <%= f.text_area :comment%>
+          <%= button_tag type: "submit", class: "submit-btn" do%>
+            <p>投稿</p>
+          <% end %>
+        <% end %>
+        <% else %>
+        <p>コメントを投稿するにはログインしてください。</p>
+      <% end %>
+    </div>
+    <br>
+    <div class ="btn">
+      <%= link_to "戻る", posts_path %>
+    </div>
   </div>
 </div>
