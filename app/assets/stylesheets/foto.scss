@@ -28,13 +28,11 @@
         line-height: 36px;
         width: 156px;
         z-index: 1;
-        border-radius: 5px;
+        border-radius: 3px;
         background-color: orange;
         margin-top: 10px;
         font-size: 18px;
-        display: inline-block;
-        box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-        
+        display: inline-block;     
         text-align: center;
 
         a {
@@ -174,32 +172,150 @@
 
 /* ここから投稿詳細ページ　*/
 
-.fotos-detail {
-    margin: 0 auto;
-
-}
-
-
-.detail-img {
-    max-width: 400px;
-    max-height: 400px;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 30px;
-}
-
-.contributor-info {
+.f-wrapper {
+    margin: 30px auto;
+    width: 80%;
+    text-align: left;
     display: flex;
-    margin-bottom: 30px;
-}
-.contributor-comment {
-    display: inline-block;
-    background-color: #ffd900;
-    padding: 10px;
-    width: 500px;
-    min-height: 100px;
-    border-radius: 10px;
-    margin-left: 20px;
+    flex-wrap: wrap;
+
+    .left-side, .right-side {
+        height: 350px;
+    }
+
+    .left-side {
+        width: 40%;
+        p {
+            margin-bottom: 3px;
+        }
+    }
+
+    .right-side {
+        width: 60%;
+        position: relative;
+        .img-wrapper{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            img {
+                object-fit: cover;
+                width: auto;
+                height: auto;
+                max-width: 300px;
+                max-height: 300px;
+                padding: 5px;
+                border: 1px solid #ccc;
+                background: #fff;
+            }
+        }
+
+        
+        
+    }
+
+    .bottom-side {
+        width: 100%;
+
+        .user-info {
+            display: flex;
+            margin-top: 10px;
+            height: 30px;
+            line-height: 30px;
+            
+            img {
+                object-fit: cover;
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            a {
+                color: #535353;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #c4c4c4;
+            }
+
+            
+        }
+
+        .like {
+            font-size: 20px;
+
+            .fa-heart {
+                color: #ff3333;
+            }
+        }
+
+        /*　いいねボタン　*/
+
+        .good-btn {
+            border: none;
+            background-color: rgba(255,0,0,0.7);
+            height: 36px;
+            width: 156px;
+            z-index: 1;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+            margin-top: 10px;
+            font-size: 18px;
+            display: block;
+        }
+
+        .good-btn:hover{
+            background-color: red;
+            transition: 0.5s;
+        }
+
+        //編集ボタン
+
+        .btn {
+            display: inline-block;
+        }
+
+        .danger-btn {
+            background-color: #ff5555;
+        }
+    }
+
+    //コメント欄
+
+    .comment-wrapper {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 10px;
+
+        .comment-title {
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #535353;
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+
+        form {
+
+            textarea {
+                width: 400px;
+                height: 180px;
+            }
+
+            .submit-btn {
+                margin: 20px 0;
+            }
+        }
+    }
+    
 }
 
 
@@ -275,6 +391,70 @@
     
 }
 
+
+@media screen and (max-width: 500px) {
+
+    .f-wrapper {
+        clear: both;
+        width: 98%;
+        text-align: center;
+
+        .good-btn {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .left-side, .right-side {
+            width: 100%;
+            
+        }
+
+        .left-side {
+            height: auto;
+        }
+
+        .right-side {
+            margin: 0 auto;
+            height: 200px;
+            .img-wrapper {
+                margin: 0;
+                height: 200px;
+                img{
+                    display: block;
+                    margin: 10px auto;
+                    width: 70%;
+                    position: relative;
+                }
+            }
+
+            
+        }
+
+        .user-info {
+            width: 80%;
+            margin: 10px auto;
+
+            a, img {
+                text-align: center;
+            }
+        }
+
+
+        .comment-wrapper {
+
+            form{
+                
+                .submit-btn {
+                    display: block;
+                    margin: 10px auto;
+                }
+
+            }
+            
+        }
+    }
+
+}
 
 
 

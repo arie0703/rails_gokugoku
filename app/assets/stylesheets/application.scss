@@ -20,6 +20,7 @@
   }
 
   body {
+    min-height: 650px;
     letter-spacing: 0.2px;
     position: relative; 
     font-family: "ヒラギノ角ゴ ProN", "Secular One", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
@@ -88,40 +89,64 @@
 
   footer {
     color: white;
-    background-color: black;
-    height: 60px;
+    background-color: #646464;
+    height: 230px;
     width: 100%;
-    display: flex;
     align-items: center; //文字が要素の真ん中に
     margin-top: auto;
-    bottom: 0px;
-  }
-
-  .footer-logo {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .footer-sns {
     display: flex;
-    margin-left: auto;
-    margin-right: 20px;
+    bottom: 0px;
+
+    .left-side {
+      color: #c3c3c3;
+      width: 30%;
+      padding-left: 25px;
+      p {
+        font-size: 40px;
+      }
+    }
+
+    .middle-side {
+      width: 40%;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  
+    .right-side {
+      width: 20%;
+      p {
+        font-size: 20px;
+        display: inline;
+      }
+
+      .twitter-share {
+        font-size: 35px;
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+        margin-left: 5px;
+      }
+    
+      .twitter-share:hover {
+        color: #00acee;
+        transition: 0.4s;
+      }
+    }
+
+    .bottom-side {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      font-size: 12px;
+    }
+
+
   }
 
-  .twitter-share {
-    font-size: 20px;
-    display: inline-block;
-    text-decoration: none;
-    color: rgba(0, 172, 237, 1);
-    padding: 2px 8px;
-    border-radius: 5px;
-    margin-right: 5px;
-  }
 
-  .twitter-share:hover {
-    opacity: 0.8;
-    transition: 0.4s;
-  }
 
 
 
@@ -294,23 +319,31 @@
     height: auto;
     display: block;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+
+    .left-side, .middle-side, .right-side {
+      width: 100%;
+    }
+
+    .left-side {
+      padding: 0;
+      p {
+        margin: 20px auto;
+      }
+    }
+
+    .right-side {
+      .twitter-share {
+        display: block;
+      }
+    }
+
+    .bottom-side {
+      position: relative;
+    }
+    
   }
 
-  .footer-logo {
-    padding-top: 10px;
-  }
 
-  .footer-sns {
-    justify-content: center;
-    margin-right: 0;
-  }
-  
-  .twitter-share, .line-it-button {
-    margin-bottom: 10px;
-    font-size: 30px;
-  }
 
 
 

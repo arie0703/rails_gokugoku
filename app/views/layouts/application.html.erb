@@ -38,7 +38,7 @@
             <% else %>
               <li><%= link_to "ログイン", users_sign_in_path %></li>
             <% end %>
-            <li><%= link_to "飲みメモ",  posts_path %></li>
+            <li><%= link_to "メモ",  posts_path %></li>
             <li><%= link_to 'ギャラリー', fotos_path %></li>
             <li><%= link_to 'トップページ', root_path %></li>
           </ul>
@@ -49,18 +49,31 @@
       <%= yield %>
     </main>
     <footer>
-      <div class="footer-logo">
-        <h2>gokugoku</h2>
+
+
+      <div class="left-side">
+        <p>gokugoku</p>
       </div>
 
-      <div class="footer-sns">
+      <div class="middle-side">
+      <p>製作者ホームページ（準備中）</p>
+      <p>お問い合わせ（準備中）</p>
+      </div>
 
+      <div class="right-side">
         <!-- Twitter -->
+        <p>Share:</p>
         <a href="http://twitter.com/share?url=gokugoku.herokuapp.com&hashtags=gokugokuで宅飲みライフを共有しよう" class="twitter-share">
           <i class="fab fa-twitter"></i>
         </a>
-        
       </div>
+
+      <div class ="bottom-side">
+        <p>未成年者の飲酒は法律で固く禁じられています。</p>
+        <p>@All right reserved gokugoku 2020</p>
+      </div>
+
+
     </footer>
   </body>
 </html>

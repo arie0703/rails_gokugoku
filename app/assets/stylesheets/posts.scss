@@ -20,67 +20,46 @@
     
     /* リンクタグをボタンにする処理 */
     .btn {
+
         display: inline-block;
         position: relative;
         border: none;
         background-color: orange;
-        height: 40px;
+        height: 36px;
         width: 150px;
         z-index: 1;
         text-decoration: none;
         border-radius: 3px;
         text-align: left;
+
+        a {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            line-height: 36px;
+            z-index: 2;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
     }
     
     .btn:hover {
         opacity: 0.7;
         transition: 0.5s;
-    }
-    
-    .btn a {
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        line-height: 40px;
-        z-index: 2;
-        text-decoration: none;
-        color: #fff;
-        font-size: 18px;
-    }
+    } 
     
     .btn a:hover{
           color: white;
           transition: 0.5s;
     }
+
+    .submit-btn {
+        margin: 10px auto;
+    }
 }
 
-
-
-/*　いいねボタン　*/
-
-.good-btn {
-    border: none;
-    background-color: rgba(255,0,0,0.7);
-    height: 36px;
-    width: 156px;
-    z-index: 1;
-    text-decoration: none;
-    border-radius: 5px;
-    color: white;
-    margin-top: 10px;
-    font-size: 18px;
-    display: block;
-  }
-
-  .good-btn:hover{
-    background-color: red;
-    transition: 0.5s;
-  }
-
-
-h3 {
-    margin-bottom: 30px;
-}
 
 .memo-wrapper {
     display: flex;
@@ -255,14 +234,16 @@ h3 {
 
         .user-info {
             display: flex;
-            height: 25px;
-            line-height: 25px;
+            margin-top: 10px;
+            height: 30px;
+            line-height: 30px;
             
             img {
                 object-fit: cover;
-                height: 25px;
-                width: 25px;
+                height: 30px;
+                width: 30px;
                 border-radius: 50%;
+                margin-right: 10px;
             }
 
             a {
@@ -285,15 +266,64 @@ h3 {
             }
         }
 
+        /*　いいねボタン　*/
+
+        .good-btn {
+            border: none;
+            background-color: rgba(255,0,0,0.7);
+            height: 36px;
+            width: 156px;
+            z-index: 1;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+            margin-top: 10px;
+            font-size: 18px;
+            display: block;
+        }
+
+        .good-btn:hover{
+            background-color: red;
+            transition: 0.5s;
+        }
+
+        //編集ボタン
+
         .btn {
             display: inline-block;
         }
+
+        .danger-btn {
+            background-color: #ff5555;
+        }
     }
+
+    //コメント欄
 
     .comment-wrapper {
         width: 100%;
-        margin-top: 30px;
+        margin-top: 50px;
         margin-bottom: 10px;
+
+        .comment-title {
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #535353;
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+
+        form {
+
+            textarea {
+                width: 400px;
+                height: 180px;
+            }
+
+            .submit-btn {
+                margin: 20px 0;
+            }
+        }
     }
     
 }
@@ -334,14 +364,6 @@ h3 {
         }
     }
 
-    
-
-    
-
-    .alcohol {
-        display: block;
-        margin-left: 0;
-    }
 
     .good-btn {
         width: 100%;
@@ -366,5 +388,27 @@ h3 {
     
 
 
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .p-wrapper {
+        clear: both;
+        .left-side, .right-side {
+            width: 100%;
+        }
+
+        .left-side {
+            height: auto;
+        }
+
+        .right-side {
+            
+            .img-tape {
+                display: none;
+            }
+        }
+    }
 
 }
