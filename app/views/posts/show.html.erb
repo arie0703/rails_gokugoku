@@ -2,8 +2,8 @@
   <p class="page-title"><%= @post.title %></p>
   <div class="p-wrapper">
     <div class="left-side">
-      <p>商品名: <%= @post.product %></p>
-      <p>メーカー: <%= @post.maker %></p>
+      <p><%= @post.product %></p>
+      <p><%= @post.maker %></p>
       <p>度数: <%= @post.alcohol%></p>
       <p> 
       <% if @post.rate == 1 %>
@@ -56,9 +56,9 @@
       <p><%= @post.created_at.to_s(:datetime_jp) %></p>
       <div class="user-info">
         <% if @post.user.image? %>
-          <a href="/users/<%= @post.user.id %>"><img src=<%= @post.user.image %> class = "user-icon"></a>
+          <img src=<%= @post.user.image %>>
         <% else %>
-          <a href="/users/<%= @post.user.id %>"><img src="/assets/noicon.jpg" class= "user-icon"></a>   
+          <img src="/assets/noicon.jpg">
         <% end %>
         <a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a>
       </div>
@@ -69,7 +69,7 @@
         <div class="btn"> 
           <%= link_to "編集", edit_post_path(@post.id) %>
         </div>
-        <div class="btn">
+        <div class="btn danger-btn">
           <%= link_to "削除", post_path(@post.id), data: { confirm: "投稿を削除しますか？" }, method: :delete %>
         </div>
       <% elsif user_signed_in? && current_user.id != @post.user_id %>
@@ -85,8 +85,7 @@
   
 
     <div class="comment-wrapper">
-      <h3>コメント一覧</h3>
-
+      <p class="comment-title">Comment</p>
       
       <% @comments.each.with_index(1) do |c, i| %>
         <!-- 最新コメントとして空のコメントが表示されるバグがあったので、最新コメントが表示されない処理-->
@@ -104,11 +103,15 @@
           
         <% end %>
       <% end %>
+
+      <% if @comments.count == 0%>
+        <p>コメントはありません。</p>
+        <br>
+      <% end %>
       
       <% if user_signed_in? %>
-        <p>コメントを投稿する</p>
         <%= form_with(model: [@post, @comment], local: true) do |f| %>
-          <%= f.text_area :comment%>
+          <%= f.text_area :comment, :placeholder => 'コメントを入力' %>
           <%= button_tag type: "submit", class: "submit-btn" do%>
             <p>投稿</p>
           <% end %>
@@ -118,8 +121,5 @@
       <% end %>
     </div>
     <br>
-    <div class ="btn">
-      <%= link_to "戻る", posts_path %>
-    </div>
   </div>
 </div>

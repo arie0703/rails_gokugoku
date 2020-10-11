@@ -2,32 +2,75 @@
 <div class="intro">
   <img src ="/assets/takunomi.jpg">
     <div class ="top-text">
-      <h1>今日は何飲む？</h1>
+      <p class="title">今日は何飲む？</p>
       <p>宅飲みLoverのための情報共有SNS</p>
     </div>
 </div>
 
-<div class="discription">
-  <h1>What's gokugoku?</h1>
-  <p>gokugokuは宅飲みを充実させる情報共有サイトです。</p>
-  <p>好きなお酒を共有して、充実した宅飲みライフを作りましょう！</p>
+<div class="about">
+  <div class="about-wrapper">
+    <p class="title">About</p>
+    <p>gokugokuは宅飲みを充実させる情報共有サイトです。</p>
+    <p>気になる新作の缶チューハイをチェックしたり、</p>
+    <p>新しい宅飲みの楽しみ方を発見したり、</p>
+    <p>gokugokuはあなたの<span>「おうち時間」</span>に楽しみを提供します。</p>
+  </div>
 </div>
 
   
 <div class="service">
+
+<p class="title">Contents</p>
+
   <div class="block">
-    <h2>飲みメモ</h2>
-    <img src="/assets/alcohols.png">
-    <p>缶チューハイ、ビール、ハイボールなど、コンビニで買えるお手軽なお酒の情報共有ページです。</p>
-    <%= link_to "", posts_path %>
+
+    <div class="picture-side">
+      <div class="picture-block left">
+        <%= link_to "", posts_path %>
+        <img src="/assets/alcohols.png">
+      </div>
+    </div>
+
+    <div class="discription-side">
+      <div class="memo"></div>
+      <div class="discription-wrapper">
+        <%= link_to "", posts_path %>
+        <p class="contents-title">Memo</p>
+        <p>お酒の口コミページです。</p>
+        <p>あなたの飲みたいお酒が</p>
+        <p>見つかるかも？</p>
+        <br>
+        <p>美味しかったお酒は</p>
+        <p>Memoに残して</p>
+        <p>みんなにシェアしましょう！</p>
+      </div>
+    </div>
+
+
   </div>
 
   <div class="block">
-    <h2>ギャラリー</h2>
-    <img src="/assets/gallery.png">
-    <p>あなたの宅飲みはどんなスタイル？</p>
-    <p>美味しい食べ物やお洒落なグラスと共に宅飲みの写真を投稿しましょう！</p>
-    <%= link_to "", fotos_path %>
+    <div class="discription-side">
+      <div class="gallery"></div>
+      <div class="discription-wrapper">
+      <%= link_to "", fotos_path %>
+        <p class="contents-title">Gallery</p>
+        <p>宅飲みの写真共有ページです。</p>
+        <p>楽しいパーティや</p>
+        <p>美味しい料理とお酒を</p>
+        <p>写真でシェアしましょう！</p>
+        <br>
+        <p>新しい宅飲みのスタイルが</p>
+        <p>見つかるかも？</p>
+      </div>
+    </div>
+
+    <div class="picture-side">
+      <div class="picture-block right">
+        <%= link_to "", fotos_path %>
+        <img src="/assets/gallery.png">
+      </div>
+    </div>
   </div>
   
 
