@@ -1,6 +1,9 @@
 class HelloController < ApplicationController
+
+
     def index
-        @random = Post.order("RANDOM()").limit(1)
+        #評価４以上の投稿をランダムに１件表示する
+        @random = Post.order("RANDOM()").where("rate > 4").limit(1)
     end
 
     def link
