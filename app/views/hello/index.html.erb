@@ -20,7 +20,7 @@
   
 <div class="service">
 
-<p class="title">Contents</p>
+  <p class="title">Contents</p>
 
   <div class="block">
 
@@ -73,5 +73,35 @@
     </div>
   </div>
   
+
+</div>
+
+
+<div class ="recommend">
+  <p class="title">Recommend</p>
+
+  <div class="random-wrapper">
+  <% @random.each do |r| %>
+    <%= link_to "", post_path(r.id) %>
+    <div class="img-wrapper">
+      <% if r.image? %>
+        <img src=<%= r.image %>>
+      <% else %>
+        <img src="/assets/noimage.png">
+      <% end %>
+    </div>
+
+    <div class="text-wrapper">
+      <p><%= r.product %></p>
+      <p class="post-title"><%= r.title %></p>
+
+      <div class="rate">
+        <p><i class="fas fa-star"></i> <%= r.rate %></p>
+        <p><i class="fas fa-heart"></i> <%= r.likes.count %></p>
+      </div>
+
+    </div>
+  <% end %>
+  </div>
 
 </div>
