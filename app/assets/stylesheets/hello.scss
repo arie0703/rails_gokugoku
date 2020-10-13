@@ -179,7 +179,7 @@
 
   .random-wrapper {
     height: 250px;
-    width: 50%;
+    width: 700px;
     background-color: #fff;
     margin: 30px auto;
     border-radius: 10px;
@@ -242,7 +242,16 @@
 
 //飲みメモ・ギャラリーの選択画面
 
+@media screen and (max-width: 780px) {
 
+  .recommend {
+
+    .random-wrapper{
+      width: 95%;
+    }
+  }
+
+}
 
 
 
@@ -333,6 +342,31 @@
     }
   }
 
+  .recommend {
+
+    .random-wrapper {
+      height: auto;
+      display: block;
+
+
+      .img-wrapper {
+        width: 100%;
+        text-align: center;
+        img {
+          width: 150px;
+          height: 150px;
+          
+        }
+      }
+
+      .text-wrapper {
+        width: 100%;
+        p {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
 
   
 
