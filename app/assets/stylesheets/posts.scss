@@ -328,6 +328,32 @@
     
 }
 
+.form-container {
+    background-color: #efefef;
+    padding: 10px;
+
+
+    .title {
+        font-size: 30px;
+    }
+
+    input[type="text"]{
+        display: block;
+        margin: 10px auto;
+    }
+
+    select {
+        width: 280px;
+        height: 30px;
+        outline: 0;
+    }
+    
+    textarea {
+        width: 400px;
+        height: 200px;
+    }
+}
+
 
 /* エラ〜メッセージのCSS */
 
