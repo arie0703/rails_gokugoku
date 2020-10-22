@@ -76,31 +76,29 @@
 
 </div>
 
-
 <div class ="recommend">
   <p class="title">Recommend</p>
-
+  <% @random.each do |r| %>
   <div class="random-wrapper">
-  
-    <%= link_to "", post_path(@random.id) %>
+    <%= link_to "", post_path(r.id) %>
     <div class="img-wrapper">
-      <% if @random.image? %>
-        <img src=<%= @random.image %>>
+      <% if r.image? %>
+        <img src=<%= r.image %>>
       <% else %>
         <img src="/assets/noimage.png">
       <% end %>
     </div>
 
     <div class="text-wrapper">
-      <p><%= @random.product %></p>
-      <p class="post-title"><%= @random.title %></p>
+      <p><%= r.product %></p>
+      <p class="post-title"><%= r.title %></p>
 
       <div class="rate">
-        <p><i class="fas fa-star"></i> <%= @random.rate %></p>
-        <p><i class="fas fa-heart"></i> <%= @random.likes.count %></p>
+        <p><i class="fas fa-star"></i> <%= r.rate %></p>
+        <p><i class="fas fa-heart"></i> <%= r.likes.count %></p>
       </div>
-
     </div>
   </div>
+  <% end %>
 
 </div>

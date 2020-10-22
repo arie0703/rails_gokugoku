@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_09_18_073821) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string "comment"
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_09_18_073821) do
 
   create_table "fotocomments", force: :cascade do |t|
     t.string "fotocomment"
-    t.integer "user_id", null: false
-    t.integer "foto_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "foto_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["foto_id"], name: "index_fotocomments_on_foto_id"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_09_18_073821) do
   end
 
   create_table "fotolikes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "foto_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "foto_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["foto_id"], name: "index_fotolikes_on_foto_id"
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 2020_09_18_073821) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_likes_on_post_id"
@@ -73,8 +76,8 @@ ActiveRecord::Schema.define(version: 2020_09_18_073821) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "follow_id"
+    t.bigint "user_id"
+    t.bigint "follow_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follow_id"], name: "index_relationships_on_follow_id"
