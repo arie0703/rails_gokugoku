@@ -1,12 +1,16 @@
 ・開発環境  
   
 Mac OS Catalina 10.15.6  
-Ruby 2.6.2  
-Ruby on rails 6.0.3.3  
-SQLite 3  
-Google Chrome, Safariで動作確認済み 
-Rack (ミドルウェア)  
 Visual Studio Code （エディタ）  
+
+言語: Ruby 2.6.2  
+FW: Ruby on rails 6.0.3.3  
+DB: PostgreSQL  
+デプロイ環境: Heroku  
+Docker    
+
+Google Chrome, Safariで動作確認済み  
+
 
   
 ・サービス概要  

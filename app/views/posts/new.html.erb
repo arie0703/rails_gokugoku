@@ -3,8 +3,8 @@
 <div class="posts-container">
     <div class="form-container">
       <p class="title">新規投稿</p>
-      <%= form_for @post do |f| %>
       <!-- エラーメッセージ -->
+      <%= form_for @post do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
       <%= f.text_field :title,size: 80, :class => 'title-form', :placeholder => 'タイトル' %>
       <%= f.text_field :product,size: 80, :placeholder => '商品名' %>

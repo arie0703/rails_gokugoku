@@ -26,14 +26,7 @@
     font-family: "ヒラギノ角ゴ ProN", "Secular One", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
     display: flex;
     flex-direction: column;
-  }
-
-  .fa-star {
-    color: gold;
-  }
-
-  .fa-heart {
-    color: #ff3333
+    min-height: 800px;
   }
 
   header {
@@ -129,7 +122,7 @@
       }
 
       .twitter-share {
-        font-size: 35px;
+        font-size: 20px;
         display: inline-block;
         text-decoration: none;
         color: #fff;
