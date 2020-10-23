@@ -11,15 +11,15 @@
   </head>
   <body>
     <header>
-      <h1><%= link_to "gokugoku", hello_index_path %></h1>
+      <h1><%= link_to "gokugoku", root_path %></h1>
       <div class="header-list">
       <ul>
-        <li><%= link_to "飲みメモ",  posts_path %></li>
-        <li><%= link_to 'ギャラリー', fotos_path %></li>
+        <li><%= link_to "Memo",  posts_path %></li>
+        <li><%= link_to 'Gallery', fotos_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+          <li><%= link_to "My page", user_path(current_user.id) %></li>
         <% else %>
-        <li><%= link_to "ログイン", users_sign_in_path %></li>
+        <li><%= link_to "Sign in", users_sign_in_path %></li>
         <% end %>
       </ul>
       </div>
@@ -34,13 +34,13 @@
       <!-- PC用メニュー　スマホでは非表示-->
           <ul>
             <% if user_signed_in? %>
-              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+              <li><%= link_to "My page", user_path(current_user.id) %></li>
             <% else %>
-              <li><%= link_to "ログイン", users_sign_in_path %></li>
+              <li><%= link_to "Sign in", users_sign_in_path %></li>
             <% end %>
-            <li><%= link_to "メモ",  posts_path %></li>
-            <li><%= link_to 'ギャラリー', fotos_path %></li>
-            <li><%= link_to 'トップページ', root_path %></li>
+            <li><%= link_to "Memo",  posts_path %></li>
+            <li><%= link_to 'Gallery', fotos_path %></li>
+            <li><%= link_to 'Top', root_path %></li>
           </ul>
         </div>
       </div>

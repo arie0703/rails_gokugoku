@@ -329,21 +329,27 @@
     
 }
 
+//新規投稿
+
 .form-container {
     background-color: #efefef;
     padding: 10px;
 
-
+    form {
+        width: 400px;
+        margin: 0 auto;
+        text-align: left;
+    }
     .title {
         font-size: 30px;
     }
 
     input[type="text"]{
-        display: block;
         margin: 10px auto;
     }
 
     select {
+        border: 1px solid #ddd; 
         width: 280px;
         height: 30px;
         outline: 0;
@@ -355,20 +361,6 @@
     }
 }
 
-
-/* エラ〜メッセージのCSS */
-
-.alert {
-    color:#262626; 
-    background:#FFEBE8;
-    border:2px solid #990000;
-    padding:12px; font-weight:850;
-    margin-bottom: 10px;
-}
-
-.alert ul {
-    list-style: none;
-}
 
 
 @media screen and (max-width: 780px) {
