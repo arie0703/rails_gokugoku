@@ -182,11 +182,6 @@
     outline: 0;
   }
 
-
-
-  
-
-
   textarea {
     resize: none;
     height: 150px;
@@ -197,6 +192,26 @@
     box-sizing: border-box;
     font-size: 14px;
     outline: 0;
+  }
+
+  input[type="button"] {
+    border: none;
+    height: 36px;
+    width: 156px;
+    z-index: 1;
+    text-decoration: none;
+    border-radius: 3px;
+    background-color: orange;
+    color: white;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: top;
+    outline: 0;
+  }
+
+  input[type="button"]:hover{
+    opacity: 0.7;
+    transition: 0.5s;
   }
 
 

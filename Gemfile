@@ -67,8 +67,4 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'omniauth'
 gem 'omniauth-twitter'
-
-
-group :production do
-  gem 'pg' #herokuでのデータベース
-end
+gem 'pg' 
