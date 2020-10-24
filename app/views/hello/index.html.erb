@@ -1,4 +1,3 @@
-<%= stylesheet_link_tag 'hello', :media => "all" %>
 <div class="intro">
   <img src ="/assets/takunomi.jpg">
     <div class ="top-text">
@@ -8,7 +7,7 @@
 </div>
 
 <div class="about">
-  <div class="about-wrapper">
+  <div class="about-wrapper js-animation">
     <p class="title">About</p>
     <p>gokugokuは宅飲みを充実させる情報共有サイトです。</p>
     <p>気になる新作の缶チューハイをチェックしたり、</p>
@@ -22,7 +21,7 @@
 
   <p class="title">Contents</p>
 
-  <div class="block">
+  <div class="block js-animation">
 
     <div class="picture-side">
       <div class="picture-block left">
@@ -49,7 +48,7 @@
 
   </div>
 
-  <div class="block">
+  <div class="block js-animation">
     <div class="discription-side">
       <div class="gallery"></div>
       <div class="discription-wrapper">
@@ -79,7 +78,7 @@
 <div class ="recommend">
   <p class="title">Recommend</p>
   <% @random.each do |r| %>
-  <div class="random-wrapper">
+  <div class="random-wrapper js-animation">
     <%= link_to "", post_path(r.id) %>
     <div class="img-wrapper">
       <% if r.image? %>
@@ -102,3 +101,31 @@
   <% end %>
 
 </div>
+
+
+<!-- 浮き上がる系エフェクト 要素にjs-animationクラスを付与することによって使用可能 -->
+<script>
+  function showElementAnimation() {
+
+    var element = document.getElementsByClassName('js-animation');
+    if(!element) return; 
+    
+    var showTiming = window.innerHeight > 700 ? 200 : 50; // 要素が出てくるタイミングはここで調整
+    var scrollY = window.pageYOffset;
+    var windowH = window.innerHeight;
+
+    for(var i=0;i<element.length;i++) { 
+      var elemClientRect = element[i].getBoundingClientRect(); 
+      var elemY = scrollY + elemClientRect.top;
+
+      if(scrollY + windowH - showTiming > elemY) {
+        element[i].classList.add('is-show');
+      } else if(scrollY + windowH < elemY) {
+      
+      element[i].classList.remove('is-show');
+      }
+    }
+  }
+  showElementAnimation();
+  window.addEventListener('scroll', showElementAnimation);
+</script>

@@ -1,14 +1,29 @@
 
 <div class="posts-container">
-<p class="page-title">Gokugoku Memo</h1>
-<div class="btn-container">
-  <div class="btn">
-    <%= link_to "投稿", posts_new_path %>
+  <p class="page-title">Gokugoku Memo</h1>
+
+  <div class="btn-container">
+    <div class="btn">
+      <%= link_to "投稿", posts_new_path %>
+    </div>
+    <input type="button" id="btn" value='検索'>
+
   </div>
-  <div class="btn">
-    <%= link_to "検索", posts_search_path %>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="title">Search</p>
+        <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <input type="submit" value="&#xf002;" class="fas search-btn">
+        <% end %>
+        <button id="closeBtn">
+          <i class="fas fa-times"></i> CLOSE
+        </button>
+      </div>
+    </div>
   </div>
-</div>
 
   <!--投稿表示-->
   <div class="memo-wrapper">
@@ -39,7 +54,28 @@
     <% end %>
   </div>
   <%= paginate @pagination %>
+
 </div>
+
+<script>
+
+  var btn = document.getElementById('btn');  //id="btn"を取得する変数
+  var modal = document.getElementById('modal');
+  var closeBtn = document.getElementById('closeBtn');
+
+  //第一引数にモーダルを発生させる動作、第二引数に効果（モーダルのdisplayをblockにする）
+  btn.addEventListener('click', function() {
+    modal.style.display = 'block';
+  });
+
+  //閉じる用
+  closeBtn.addEventListener('click', function() {
+  modal.style.display = 'none';
+  });
+
+</script>
+
+
 
 
 
