@@ -1,0 +1,17 @@
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-body">
+        <p class="title">Search</p>
+        <!-- renderで受け取った変数をmodelに代入 -->
+        <%= form_tag( model, method: :get) do %>
+            <%= text_field_tag :search %>
+            <input type="submit" value="&#xf002;" class="fas search-btn">
+        <% end %>
+        <button id="closeBtn">
+            <i class="fas fa-times"></i> CLOSE
+        </button>
+        </div>
+    </div>
+</div>
+
+<%= javascript_pack_tag "modal/modal" %>

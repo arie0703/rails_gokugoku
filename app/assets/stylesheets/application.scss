@@ -214,6 +214,11 @@
     transition: 0.5s;
   }
 
+  @media screen and (max-width: 1024px) {
+    body {
+      min-height: 1366px;
+    }
+  }
 
   @media screen and (max-width: 540px) { 
 

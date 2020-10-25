@@ -10,20 +10,8 @@
 
   </div>
 
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-body">
-        <p class="title">Search</p>
-        <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
-          <%= text_field_tag :search %>
-          <input type="submit" value="&#xf002;" class="fas search-btn">
-        <% end %>
-        <button id="closeBtn">
-          <i class="fas fa-times"></i> CLOSE
-        </button>
-      </div>
-    </div>
-  </div>
+  <!-- モーダル -->
+  <%= render 'layouts/modal_search', model: "posts" %>
 
   <!--投稿表示-->
   <div class="memo-wrapper">
@@ -56,24 +44,6 @@
   <%= paginate @pagination %>
 
 </div>
-
-<script>
-
-  var btn = document.getElementById('btn');  //id="btn"を取得する変数
-  var modal = document.getElementById('modal');
-  var closeBtn = document.getElementById('closeBtn');
-
-  //第一引数にモーダルを発生させる動作、第二引数に効果（モーダルのdisplayをblockにする）
-  btn.addEventListener('click', function() {
-    modal.style.display = 'block';
-  });
-
-  //閉じる用
-  closeBtn.addEventListener('click', function() {
-  modal.style.display = 'none';
-  });
-
-</script>
 
 
 

@@ -26,8 +26,6 @@ Rails.application.routes.draw do
 
   get 'posts/new' => 'posts#new'
 
-  get 'posts/search' => 'posts#search'
-
   post 'posts' => 'posts#create'
 
   get 'posts/:id' => 'posts#show',as: 'post'
@@ -45,8 +43,6 @@ Rails.application.routes.draw do
   get 'fotos' => 'fotos#index'
 
   get 'fotos/new' => 'fotos#new'
-
-  get 'fotos/search' => 'fotos#search'
 
   post 'fotos' => 'fotos#create'
 
