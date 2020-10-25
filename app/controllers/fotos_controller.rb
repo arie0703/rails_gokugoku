@@ -2,13 +2,13 @@ class FotosController < ApplicationController
 
     def index
         #検索機能
-        if params[:search] != nil && params[:search] != ''
-          @fotos = Foto.where("title LIKE ? ",'%' + params[:search] + '%') .or Foto.where("body LIKE ? ",'%' + params[:search] + '%')
-        else
-          @fotos = Foto.all
-        end
-        #ページネーション 
-        @pagination = Foto.all.page(params[:page]).per(12)
+      if params[:search] != nil && params[:search] != ''
+        @fotos = Foto.where("title LIKE ? ",'%' + params[:search] + '%') .or Foto.where("body LIKE ? ",'%' + params[:search] + '%')
+      else
+        @fotos = Foto.all
+      end
+      #ページネーション 
+      @pagination = Foto.all.page(params[:page]).per(12)
       end
   
       def new

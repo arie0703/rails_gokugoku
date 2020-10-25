@@ -7,12 +7,13 @@
       <div class="btn">
         <%= link_to "投稿", fotos_new_path %>
       </div>
-      <div class="btn">
-        <%= link_to "検索", fotos_search_path %>
-      </div>
+      <input type="button" id="btn" value='検索'>
     </div>
 
-<!--投稿表示-->
+  <!-- モーダル -->
+  <%= render 'layouts/modal_search', model: "fotos" %>
+  
+  <!--投稿表示-->
   <div class="foto-container">
     <% @fotos.each do |t| %>
       <div class="foto-wrapper">
@@ -38,9 +39,9 @@
   </div>
   <%= paginate @pagination %>
 
-  
-
 </div>
+
+
 
 
 
