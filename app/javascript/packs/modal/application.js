@@ -1,1 +1,1 @@
-require("modal/modal")
+require ('modal/modal')

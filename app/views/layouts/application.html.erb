@@ -17,7 +17,16 @@
         <li><%= link_to "Memo",  posts_path %></li>
         <li><%= link_to 'Gallery', fotos_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "My page", user_path(current_user.id) %></li>
+          <li>
+            <a href="/users/<%= current_user.id %>">
+              <% if current_user.image? %>
+                <img src=<%= current_user.image %>>
+              <% else %>
+                <img src="/assets/noicon.jpg">
+              <% end %>
+              <%= current_user.name %>
+            </a>
+          </li>
         <% else %>
         <li><%= link_to "Sign in", users_sign_in_path %></li>
         <% end %>
