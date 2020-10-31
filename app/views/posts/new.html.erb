@@ -1,24 +1,23 @@
 <%= stylesheet_link_tag 'posts', :media => "all" %>
 
 <div class="posts-container">
-    <div class="form-container">
-      <p class="title">新規投稿</p>
-      <!-- エラーメッセージ -->
-      <%= form_for @post do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-      <%= f.text_field :title,size: 80, :class => 'title-form', :placeholder => 'タイトル' %>
-      <%= f.text_field :product,size: 80, :placeholder => '商品名' %>
-      <%= f.text_field :maker,size: 80 , :placeholder => 'メーカー' %>
-      <p>評価（最高: ☆×5 最低: ☆×1)</p>
-      <%= f.select :rate, [["☆×5", "5"], ["☆×4", "4"], ["☆×3", "3"], ["☆×2", "2"], ["☆×1", "1"]], include_blank: "選択して下さい" %>
-      <p>アルコール度数</p>
-      <%= f.select :alcohol, [["超ストロング（10%以上)", "超ストロング（10%以上)"], ["ストロング(7%〜9%)", "ストロング(7%〜9%)"], ["中(4%〜6%)", "中(4%〜6%)"], ["弱(3%以下)", "弱(3%以下)"], ["ノンアルコール", "ノンアルコール"]], include_blank: "選択して下さい" %>
-      <p>本文</p>
-      <%= f.text_area :body,size: 140, :class => 'body-form' %>
-      <p>写真</p>
-      <%= f.file_field :image %>
-      <%= f.submit "送信", class: "submit-btn"%>
-      <% end %>
-    </div>
-    
+  <div class="form-container">
+    <p class="title">新規投稿</p>
+    <%= form_for @post do |f| %>
+    <!-- エラーメッセージ -->
+    <%= render 'layouts/error_messages', model: f.object %>
+    <%= f.text_field :title,size: 80, :class => 'title-form', :placeholder => 'タイトル' %>
+    <%= f.text_field :product,size: 80, :placeholder => '商品名' %>
+    <%= f.text_field :maker,size: 80 , :placeholder => 'メーカー' %>
+    <p>評価（最高: ☆×5 最低: ☆×1)</p>
+    <%= f.select :rate, [["☆×5", "5"], ["☆×4", "4"], ["☆×3", "3"], ["☆×2", "2"], ["☆×1", "1"]], include_blank: "選択して下さい" %>
+    <p>アルコール度数</p>
+    <%= f.select :alcohol, [["超ストロング（10%以上)", "超ストロング（10%以上)"], ["ストロング(7%〜9%)", "ストロング(7%〜9%)"], ["中(4%〜6%)", "中(4%〜6%)"], ["弱(3%以下)", "弱(3%以下)"], ["ノンアルコール", "ノンアルコール"]], include_blank: "選択して下さい" %>
+    <p>本文</p>
+    <%= f.text_area :body,size: 140, :class => 'body-form' %>
+    <p>写真</p>
+    <%= f.file_field :image %>
+    <%= f.submit "送信", class: "submit-btn"%>
+    <% end %>
+  </div>
 </div>
