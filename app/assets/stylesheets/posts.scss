@@ -297,6 +297,28 @@
         .danger-btn {
             background-color: #ff5555;
         }
+
+        .sns-share{
+            display: flex;
+            float: right;
+
+            .share {
+                font-size: 25px;
+                display: inline-block;
+                text-decoration: none;
+                border-radius: 5px;
+                margin-left: 5px;
+                margin-right: 10px;
+            }
+
+            .twitter{
+                color: #00acee;
+            }
+
+            .facebook {
+                color: #3B5998;
+            }
+        }
     }
 
     //コメント欄
