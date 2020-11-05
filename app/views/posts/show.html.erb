@@ -80,6 +80,15 @@
         <% end %>
       <% end %>
 
+      <div class="sns-share">
+      <a href="http://twitter.com/share?url=gokugoku.herokuapp.com/posts/<%= @post.id %>&hashtags=<%= @post.title %>" class="share twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=gokugoku.herokuapp.com/posts/<%= @post.id %>" class="share facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      </div>
+
     </div>
 
   

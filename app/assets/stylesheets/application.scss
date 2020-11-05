@@ -133,7 +133,7 @@
         display: inline;
       }
 
-      .twitter-share {
+      .sns {
         font-size: 20px;
         display: inline-block;
         text-decoration: none;
@@ -146,6 +146,12 @@
         color: #00acee;
         transition: 0.4s;
       }
+
+      .facebook-share:hover {
+        color: #3B5998;
+        transition: 0.4s;
+      }
+
     }
 
     .bottom-side {
