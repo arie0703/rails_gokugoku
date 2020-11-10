@@ -43,19 +43,50 @@
         }
 
         form{
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
             
-            .search-btn {
-                height: 37px;
-                width: 37px;
-                border: none;
-                background-color: orange;
-                color: white;
-                font-size: 15px;
-                line-height: 15px;
-                margin-left: 0px;
+            .search-form{
+                display: flex;
+                justify-content: center;
+                margin: 30px 0;
+
+                input#search {
+                    margin: 0px;
+                }
+                
+                .search-btn {
+                    height: 37px;
+                    width: 37px;
+                    border: none;
+                    background-color: orange;
+                    color: white;
+                    font-size: 15px;
+                    line-height: 15px;
+                    margin-left: 0px;
+                }
+            }
+            
+            p {
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+
+            .tag-wrapper{
+                margin-bottom: 40px;
+                .tag{
+                    font-size: 12px;
+                    display: inline;
+                    background-color: rgba(255,200,0,0.5);
+                    padding: 8px;
+                    border-radius: 3px;
+                    margin-right: 5px;
+                    text-decoration: none;
+                    color: #000;
+                }
+    
+                .tag:hover{
+                    background-color: rgb(255,200,0);
+                    transition: 0.5s;
+                }
             }
         }
     }

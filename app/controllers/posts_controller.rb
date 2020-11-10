@@ -4,6 +4,8 @@ class PostsController < ApplicationController
       #検索機能
       if params[:search] != nil && params[:search] != ''
         @posts = Post.where("product LIKE ? ",'%' + params[:search] + '%') .or Post.where("maker LIKE ? ",'%' + params[:search] + '%') .or Post.where("body LIKE ? ",'%' + params[:search] + '%')
+      elsif params[:tag_name]
+        @posts = Post.tagged_with("#{params[:tag_name]}")
       else
         @posts = Post.all
       end
@@ -60,7 +62,7 @@ class PostsController < ApplicationController
     private
 
   def post_params
-    params.require(:post).permit(:title,:body,:product,:maker,:rate,:alcohol,:image)
+    params.require(:post).permit(:title,:body,:product,:maker,:rate,:alcohol,:image, :tag_list)
   end
 
 

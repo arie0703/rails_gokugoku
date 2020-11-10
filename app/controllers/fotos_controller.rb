@@ -4,6 +4,8 @@ class FotosController < ApplicationController
         #検索機能
       if params[:search] != nil && params[:search] != ''
         @fotos = Foto.where("title LIKE ? ",'%' + params[:search] + '%') .or Foto.where("body LIKE ? ",'%' + params[:search] + '%')
+      elsif params[:tag_name]
+        @fotos = Foto.tagged_with("#{params[:tag_name]}")
       else
         @fotos = Foto.all
       end
@@ -60,7 +62,7 @@ class FotosController < ApplicationController
       private
   
     def foto_params
-      params.require(:foto).permit(:title,:body,:image)
+      params.require(:foto).permit(:title,:body,:image,:tag_list)
     end
   
   
