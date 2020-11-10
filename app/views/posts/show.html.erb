@@ -53,14 +53,38 @@
     </div>
 
     <div class="bottom-side">
+
       <p><%= @post.created_at.to_s(:datetime_jp) %></p>
-      <div class="user-info">
-        <% if @post.user.image? %>
-          <img src=<%= @post.user.image %>>
-        <% else %>
-          <img src="/assets/noicon.jpg">
-        <% end %>
-        <a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a>
+
+      <!-- タグ機能 -->
+      <div class="tags">
+        <% @post.tag_list.each do |tag| %>
+          <%= link_to "#" + tag, posts_path(tag_name: tag), class: "tag" %>
+        <% end%>
+      </div>
+
+      <!-- user -->
+      <div class="user-wrapper">
+        <div class="user-info">
+          <% if @post.user.image? %>
+            <img src=<%= @post.user.image %>>
+          <% else %>
+            <img src="/assets/noicon.jpg">
+          <% end %>
+          <a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a>
+        </div>
+      </div>
+
+      <!-- sns-share -->
+      <div class="share-wrapper">
+        <div class="sns-share">
+        <a href="http://twitter.com/share?url=gokugoku.herokuapp.com/posts/<%= @post.id %>&hashtags=<%= @post.title %>" class="share twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=gokugoku.herokuapp.com/posts/<%= @post.id %>" class="share facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        </div>
       </div>
 
       <p class="like"><i class="fas fa-heart"></i> <%= @post.likes.count %></p>
@@ -80,14 +104,8 @@
         <% end %>
       <% end %>
 
-      <div class="sns-share">
-      <a href="http://twitter.com/share?url=gokugoku.herokuapp.com/posts/<%= @post.id %>&hashtags=<%= @post.title %>" class="share twitter">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=gokugoku.herokuapp.com/posts/<%= @post.id %>" class="share facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      </div>
+
+
 
     </div>
 

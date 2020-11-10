@@ -9,6 +9,9 @@
       <%= f.text_area :body,size: 140, :class => 'body-form' %>
       <p>写真</p>
       <%= f.file_field :image, :class => 'image-form' %>
+      <%= f.text_field :tag_list, value: @foto.tag_list.join(','), size: 140, :placeholder => 'タグ' %>
+      <p class="tag-discription">複数指定したい場合は半角カンマで区切ってください。</p>
+      <p class="tag-discription">例: ノンアルコール,飲みやすい</p>
       <%= f.submit "Post", class: "submit-btn" %>
       <% end %>
     </div>

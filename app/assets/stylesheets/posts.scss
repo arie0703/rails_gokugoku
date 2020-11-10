@@ -233,30 +233,78 @@
     .bottom-side {
         width: 100%;
 
-        .user-info {
-            display: flex;
-            margin-top: 10px;
-            height: 30px;
-            line-height: 30px;
-            
-            img {
-                object-fit: cover;
-                height: 30px;
-                width: 30px;
-                border-radius: 50%;
-                margin-right: 10px;
-            }
-
-            a {
-                color: #535353;
+        .tags{
+            margin: 5px 0px;
+            .tag{
+                font-size: 12px;
+                display: inline;
+                background-color: rgba(255,200,0,0.5);
+                padding: 8px;
+                border-radius: 3px;
+                margin-right: 5px;
                 text-decoration: none;
+                color: #000;
             }
 
-            a:hover {
-                color: #c4c4c4;
+            .tag:hover{
+                background-color: rgb(255,200,0);
+                transition: 0.5s;
             }
+        }
 
-            
+        .user-wrapper{
+            display: inline-block;
+            .user-info {
+                display: flex;
+                height: 30px;
+                line-height: 30px;
+                
+                img {
+                    object-fit: cover;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+    
+                a {
+                    color: #535353;
+                    text-decoration: none;
+                }
+    
+                a:hover {
+                    color: #c4c4c4;
+                }
+    
+                
+            }
+        }
+        
+        .share-wrapper {
+            display: inline-block;
+            .sns-share{
+                display: flex;
+                float: right;
+                height: 30px;
+                line-height: 30px;
+    
+                .share {
+                    font-size: 25px;
+                    display: inline-block;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    margin-left: 5px;
+                    margin-right: 10px;
+                }
+    
+                .twitter{
+                    color: #00acee;
+                }
+    
+                .facebook {
+                    color: #3B5998;
+                }
+            }
         }
 
         .like {
@@ -298,27 +346,7 @@
             background-color: #ff5555;
         }
 
-        .sns-share{
-            display: flex;
-            float: right;
-
-            .share {
-                font-size: 25px;
-                display: inline-block;
-                text-decoration: none;
-                border-radius: 5px;
-                margin-left: 5px;
-                margin-right: 10px;
-            }
-
-            .twitter{
-                color: #00acee;
-            }
-
-            .facebook {
-                color: #3B5998;
-            }
-        }
+        
     }
 
     //コメント欄

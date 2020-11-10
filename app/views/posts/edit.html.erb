@@ -15,6 +15,7 @@
       <%= f.text_area :body,size: 140, :class => 'body-form' %>
       <p>写真</p>
       <%= f.file_field :image %>
+      <%= f.text_field :tag_list, value: @post.tag_list.join(','), size: 80 , :placeholder => 'タグ' %>
       <%= f.submit "編集する", class: "submit-btn" %>
     <% end %>
   </div>
