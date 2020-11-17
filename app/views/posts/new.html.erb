@@ -18,6 +18,8 @@
     <p>写真</p>
     <%= f.file_field :image %>
     <%= f.text_field :tag_list, value: @post.tag_list.join(','), size: 80 , :placeholder => 'タグ' %>
+    <p class="tag-discription">複数指定したい場合は半角カンマで区切ってください。</p>
+    <p class="tag-discription">例: ノンアルコール,飲みやすい,酔いにくい,ストロング</p>
     <%= f.submit "送信", class: "submit-btn"%>
     <% end %>
   </div>
