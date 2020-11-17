@@ -409,6 +409,10 @@
         width: 400px;
         height: 200px;
     }
+
+    .tag-discription{
+        font-size: 12px;
+    }
 }
 
 
@@ -473,6 +477,24 @@
                 display: none;
             }
         }
+    }
+
+    .form-container {
+    
+        form {
+            width: 90%;
+            text-align: center;
+        }
+    
+        input[type="text"]{
+            width: 90%;
+        }
+    
+        
+        textarea {
+            width: 90%;
+        }
+    
     }
 
 }
