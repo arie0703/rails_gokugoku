@@ -7,6 +7,7 @@ Visual Studio Code （エディタ）
 FW: Ruby on rails 6.0.3.3  
 DB: PostgreSQL  
 デプロイ環境: Heroku  
+テストフレームワーク: RSpec (+FactoryBot)  
 Docker    
 
 Google Chrome, Safariで動作確認済み  
