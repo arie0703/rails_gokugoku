@@ -29,7 +29,11 @@ relationモデルによるフォロー機能
 投稿機能 + Cloudinaryによる写真投稿  
 Gem(kaminari)を使用したページネーション機能  
 投稿にいいね・コメントが付けられる機能  
-スマートフォンでの表示に対応したレスポンシブCSS  
+スマートフォンでの表示に対応したレスポンシブCSS    
+
+ゲストログイン  
+email: guest@example  
+password: guest0000
   
 ・heroku URL  
 https://gokugoku.herokuapp.com/  
