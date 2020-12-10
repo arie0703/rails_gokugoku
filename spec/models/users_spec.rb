@@ -13,14 +13,30 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(true)
     end
 
-    it 'nameが空だとNG' do
-      @user.name = ''
-      expect(@user.valid?).to eq(false)
+    context 'name' do
+      it 'nameが空だとNG' do
+        @user.name = ''
+        expect(@user.valid?).to eq(false)
+      end
+  
+      it 'nameが16以上だと登録できない' do
+        @user.name = 'a' * 16
+        expect(@user.valid?).to eq(false)
+      end
+  
+      it 'nameが15文字以内なら登録できる。' do
+        @user.name = 'a' * 15
+        expect(@user.valid?).to eq(true)
+      end
     end
 
-    it 'emailが空だとNG' do
-      @user.email = ''
-      expect(@user.valid?).to eq(false)
+    context 'email' do
+      it 'emailが空だとNG' do
+        @user.email = ''
+        expect(@user.valid?).to eq(false)
+      end
+
     end
+
   end
 end

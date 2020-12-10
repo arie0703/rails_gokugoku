@@ -123,5 +123,60 @@ RSpec.describe Post, type: :model do
       end
     end
 
+    describe '文字数制限' do
+      it 'titleは20字を超えるとエラー' do
+        post = @user.posts.build(
+          title: "T" * 21,
+          body: "内容",
+          alcohol: "弱(3%以下)",
+          product: "ほろよい",
+          maker: "サントリー",
+          rate: "4",
+          user_id: 1
+          )
+        expect(post.valid?).to eq(false)
+      end
+
+      it 'bodyは140字を超えるとエラー' do
+        post = @user.posts.build(
+          title: "タイトル",
+          body: "B" * 141,
+          alcohol: "弱(3%以下)",
+          product: "ほろよい",
+          maker: "サントリー",
+          rate: "4",
+          user_id: 1
+          )
+        expect(post.valid?).to eq(false)
+      end
+
+      it 'productは20字を超えるとエラー' do
+        post = @user.posts.build(
+          title: "タイトル",
+          body: "内容",
+          alcohol: "弱(3%以下)",
+          product: "P" * 21,
+          maker: "サントリー",
+          rate: "4",
+          user_id: 1
+          )
+        expect(post.valid?).to eq(false)
+      end
+
+      it 'makerは20字を超えるとエラー' do
+        post = @user.posts.build(
+          title: "タイトル",
+          body: "B" * 141,
+          alcohol: "弱(3%以下)",
+          product: "ほろよい",
+          maker: "M" * 21,
+          rate: "4",
+          user_id: 1
+          )
+        expect(post.valid?).to eq(false)
+      end
+
+    end
+
     
 end

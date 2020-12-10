@@ -7,7 +7,7 @@ class Foto < ApplicationRecord
     has_many :fotoliked_users, through: :fotolikes, source: :user
     has_many :fotocomments, dependent: :destroy
 
-    validates :title, presence: true
+    validates :title, presence: true, length: { maximum: 20 }
     validates :image, presence: true
-    validates :body, presence: true
+    validates :body, presence: true, length: { maximum: 140 }
 end
