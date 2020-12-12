@@ -38,5 +38,12 @@ RSpec.describe User, type: :model do
 
     end
 
+    context 'password' do
+      it 'passwordが6文字未満' do
+        @user.password = "a" * 5
+        expect(@user.valid?).to eq(false)
+      end
+    end
+
   end
 end

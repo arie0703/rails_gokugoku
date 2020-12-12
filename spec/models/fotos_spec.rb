@@ -22,4 +22,42 @@ RSpec.describe Foto, type: :model do
 
     end
 
+
+    describe 'バリデーションチェック' do
+  
+      it "title" do 
+        
+        foto = @user.fotos.build(
+          title: nil,
+          body: "内容",
+          image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/example.jpg'), 'image/jpg'),
+          user_id: 1
+          )
+        expect(foto).to be_invalid
+      end
+
+      it "body" do 
+        
+        foto = @user.fotos.build(
+          title: "title",
+          body: nil,
+          image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/example.jpg'), 'image/jpg'),
+          user_id: 1
+          )
+        expect(foto).to be_invalid
+      end
+
+      it "image" do 
+        
+        foto = @user.fotos.build(
+          title: "title",
+          body: "内容",
+          image: nil,
+          user_id: 1
+          )
+        expect(foto).to be_invalid
+      end
+
+    end
+
 end

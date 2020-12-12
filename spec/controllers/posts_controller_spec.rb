@@ -44,6 +44,14 @@ RSpec.describe PostsController, type: :controller do
                 }.to_not change(@user.posts, :count)
             end
 
+            it '投稿後のリダイレクト' do
+                post_params = FactoryBot.attributes_for(:post)
+                post :create, params: { post: post_params }
+
+                expect(response).to redirect_to "/posts"
+            end
+
+
         end
 
         context "ログインしていない場合" do
