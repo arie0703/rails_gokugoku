@@ -1,4 +1,4 @@
-##開発環境  
+## 開発環境  
   
 Mac OS Catalina 10.15.6  
 Visual Studio Code （エディタ）  
