@@ -6,10 +6,11 @@
 #
 default: &default
   adapter: postgresql
+  database: gokugoku_development
   encoding: unicode
   host: db
-  username: arie0703
-  password: password
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   pool: 5
 
 development:

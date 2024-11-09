@@ -1,18 +1,15 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:latest
     ports:
       - '5432:5432' # ホストからゲストへポートフォワード
     volumes:
       - postgresql-data:/var/lib/postgresql/data
-      # 1. exclude volumes
-      - /app/vendor
-      - /app/tmp
-      - /app/log
-      - /app/.git
     environment:
-      - POSTGRES_PASSWORD=password
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "gokugoku_development"
   web:
     build:
       context: .
@@ -21,11 +18,15 @@ services:
     tty: true
     stdin_open: true
     depends_on:
-      - db # DB側のコンテナが出来上がってからwebを実行する
+      - db
     ports:
-      - "3000:3000" # ホストからゲストへポートフォワード
+      - "3000:3000"
     volumes:
-      - .:/myproject # ソースコード変更したらDocker側も即反映されるように
+      - .:/myproject
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "gokugoku_development"
 volumes:
   postgresql-data:
     driver: local
