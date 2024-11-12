@@ -28,7 +28,7 @@
         <div class ="postview">
           <p><%= t.product%></p>
           <h4><%= t.title%></h4>              
-          <p>投稿日時: <%= t.created_at.to_s(:datetime_jp)%></p>
+          <p>投稿日時: <%= t.created_at.to_fs(:datetime_jp)%></p>
           <%= link_to "", post_path(t.id) %>
         </div>
         <% end %>
