@@ -1,9 +1,9 @@
 <div class="intro">
-  <img src ="/assets/top.jpg">
-    <div class ="top-text">
-      <p class="title">Drink and Enjoy!</p>
-      <p class="description">宅飲みLoverのための情報共有SNS</p>
-    </div>
+  <img src="/assets/top.jpg">
+  <div class="top-text">
+    <p class="title">Drink and Enjoy!</p>
+    <p class="description">宅飲みLoverのための情報共有SNS</p>
+  </div>
 </div>
 
 <div class="about">
@@ -16,7 +16,7 @@
   </div>
 </div>
 
-  
+
 <div class="service">
 
   <p class="title">Contents</p>
@@ -52,7 +52,6 @@
     <div class="discription-side">
       <div class="gallery"></div>
       <div class="discription-wrapper">
-      <%= link_to "", fotos_path %>
         <p class="contents-title">Gallery</p>
         <p>宅飲みの写真共有ページです。</p>
         <p>楽しいパーティや</p>
@@ -66,25 +65,24 @@
 
     <div class="picture-side">
       <div class="picture-block right">
-        <%= link_to "", fotos_path %>
         <img src="/assets/gallery.png">
       </div>
     </div>
   </div>
-  
+
 
 </div>
 
-<div class ="recommend">
+<div class="recommend">
   <p class="title">Recommend</p>
   <% @random.each do |r| %>
   <div class="random-wrapper js-animation">
     <%= link_to "", post_path(r.id) %>
     <div class="img-wrapper">
       <% if r.image? %>
-        <img src=<%= r.image %>>
+      <img src=<%= r.image %>>
       <% else %>
-        <img src="/assets/noimage.png">
+      <img src="/assets/noimage.png">
       <% end %>
     </div>
 

@@ -73,11 +73,11 @@
     font-weight: bold;
   }
 
-  .like, .foto-like, .postview{
+  .like, .postview{
     margin-top: 10px;
   }
 
-  .like a, .foto-like a, .postview a{
+  .like a, .postview a{
     color:grey;
     text-decoration: none;
     font-size: 18px;
@@ -90,11 +90,6 @@
 
   .like a:hover {
     color: red;
-    font-style: bold;
-  }
-
-  .foto-like a:hover {
-    color: green;
     font-style: bold;
   }
   /* アイコン*/
@@ -178,9 +173,7 @@
   
   
   #postview:checked ~ #post_content,
-  #foto:checked ~ #foto_content,
-  #like:checked ~ #like_content,
-  #foto-like:checked ~ #fotolike_content {
+  #like:checked ~ #like_content {
     display: block;
   }
 
@@ -189,37 +182,7 @@
     color: #fff;
   }
 
-  .postview {
-    height: 80px;
-    width: 400px;
-    background-color: rgba(255,217,0,0.7);
-    border-radius: 10px;
-    padding: 10px;
-    position: relative;
-    z-index: 1; 
-    
-  }
-
-  #like_content .postview {
-    display: inline-block;
-  }
-
-  .postview a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-indent:-999px;
-    z-index: 2; 
-    }
-
-  .postview:hover {
-    background-color: rgba(255, 217, 0, 0.3);
-    transition: 0.4s;
-  }
-
-.fotoview-wrapper {
+.postview-wrapper {
   display: inline-block;
   width: auto;
   min-width: 32%;
@@ -227,26 +190,26 @@
 }
 
 
-.fotoview {
+.postview {
   height: 200px;
   width: 200px;
   object-fit: cover;
 }
 
-.fotoview-post {
-    height: 200px;
-    width: 200px;
-    position: relative;
-    z-index: 1; 
-    margin: 0 auto;
+.postview-post {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  z-index: 1; 
+  margin: 0 auto;
 }
 
-.fotoview-post:hover {
+.postview-post:hover {
     opacity: 0.7;
 }
 
 
-.fotoview-post a {
+.postview-post a {
     position: absolute;
     top: 0;
     left: 0;
@@ -257,7 +220,7 @@
 }
 
 
-.fotoview-option {
+.postview-option {
   position: absolute;
   top: 40%;
   left: 0;
@@ -269,7 +232,7 @@
   display: none;
 }
 
-.fotoview-post:hover > .fotoview-option {
+.postview-post:hover > .postview-option {
   display: block;
 }
 
@@ -288,10 +251,6 @@
 
 .allview-wrapper .postview{
   margin: 10px auto;
-}
-
-.allview-wrapper .fotoview-wrapper{
-  width: 25%;
 }
 
 .allview-wrapper .allview-btn {
@@ -369,14 +328,6 @@
   .allview-wrapper .postview{
     width: 60%;
   }
-
-  .fotoview-wrapper {
-    min-width: 200px;
-    display: block;
-    margin: 20px auto;
-  }
-  
-
 
 }
 

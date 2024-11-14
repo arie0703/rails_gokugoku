@@ -12,11 +12,7 @@ Rails.application.routes.draw do
   
   get 'users/:id/all_posts' => 'users#all_posts'
 
-  get 'users/:id/all_fotos' => 'users#all_fotos'
-
   get 'users/:id/all_likes' => 'users#all_likes'
-
-  get 'users/:id/all_fotolikes' => 'users#all_fotolikes'
 
   get 'users/:id/followings' => 'users#followings'
 
@@ -38,26 +34,9 @@ Rails.application.routes.draw do
 
   root 'hello#index'
 
-  #foto
-
-  get 'fotos' => 'fotos#index'
-
-  get 'fotos/new' => 'fotos#new'
-
-  post 'fotos' => 'fotos#create'
-
-  get 'fotos/:id' => 'fotos#show',as: 'foto'
-    
-  patch 'fotos/:id' => 'fotos#update'
-
-  delete 'fotos/:id' => 'fotos#destroy'
-  
-  get 'fotos/:id/edit' => 'fotos#edit', as:'edit_foto'
-
   resources :users, only: [:index, :show] do
     collection do
       get :likes
-      get :fotolikes
     end
   end
 
@@ -66,10 +45,5 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
-  end
-
-  resources :fotos do
-    resources :fotolikes, only: [:create, :destroy]
-    resources :fotocomments, only: [:create, :destroy]
   end
 end

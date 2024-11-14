@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(2).order('updated_at DESC')
-    @fotos = @user.fotos.page(params[:page]).per(6)
   end
 
   def followings
@@ -18,15 +17,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def all_fotos
-    @user = User.find(params[:id])
-  end
-
   def all_likes
-    @user = User.find(params[:id])
-  end
-
-  def all_fotolikes
     @user = User.find(params[:id])
   end
 
