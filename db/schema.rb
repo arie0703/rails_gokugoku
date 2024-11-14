@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2020_11_10_070628) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_12_221902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,34 +22,6 @@ ActiveRecord::Schema[7.2].define(version: 2020_11_10_070628) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "fotocomments", force: :cascade do |t|
-    t.string "fotocomment"
-    t.bigint "user_id", null: false
-    t.bigint "foto_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["foto_id"], name: "index_fotocomments_on_foto_id"
-    t.index ["user_id"], name: "index_fotocomments_on_user_id"
-  end
-
-  create_table "fotolikes", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "foto_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["foto_id"], name: "index_fotolikes_on_foto_id"
-    t.index ["user_id"], name: "index_fotolikes_on_user_id"
-  end
-
-  create_table "fotos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "body"
-    t.string "title"
-    t.string "image"
-    t.integer "user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -130,10 +102,6 @@ ActiveRecord::Schema[7.2].define(version: 2020_11_10_070628) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "fotocomments", "fotos"
-  add_foreign_key "fotocomments", "users"
-  add_foreign_key "fotolikes", "fotos"
-  add_foreign_key "fotolikes", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "relationships", "users"

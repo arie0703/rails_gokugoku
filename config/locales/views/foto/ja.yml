@@ -1,9 +1,0 @@
-ja:
-    activerecord:
-      attributes:
-        foto:
-            title: 名前
-            body: 本文
-            image: 画像
-        models:
-            foto: 投稿

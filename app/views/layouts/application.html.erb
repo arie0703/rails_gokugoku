@@ -1,91 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>gokugoku</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <header>
-      <h1><%= link_to "gokugoku", root_path %></h1>
-      <div class="header-list">
+
+<head>
+  <title>gokugoku</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header>
+    <h1><%= link_to "gokugoku", root_path %></h1>
+    <div class="header-list">
       <ul>
         <li><%= link_to "Memo",  posts_path %></li>
-        <li><%= link_to 'Gallery', fotos_path %></li>
         <% if user_signed_in? %>
-          <li>
-            <a href="/users/<%= current_user.id %>">
-              <% if current_user.image? %>
-                <img src=<%= current_user.image %>>
-              <% else %>
-                <img src="/assets/noicon.jpg">
-              <% end %>
-              <%= current_user.name %>
-            </a>
-          </li>
+        <li>
+          <a href="/users/<%= current_user.id %>">
+            <% if current_user.image? %>
+            <img src=<%= current_user.image %>>
+            <% else %>
+            <img src="/assets/noicon.jpg">
+            <% end %>
+            <%= current_user.name %>
+          </a>
+        </li>
         <% else %>
         <li><%= link_to "Sign in", users_sign_in_path %></li>
         <% end %>
       </ul>
-      </div>
+    </div>
 
-      <!-- ハンバーガーメニュー　PCでは非表示-->
-      <div id="nav-drawer">
-        <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input"><span></span></label>
-        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+    <!-- ハンバーガーメニュー　PCでは非表示-->
+    <div id="nav-drawer">
+      <input id="nav-input" type="checkbox" class="nav-unshown">
+      <label id="nav-open" for="nav-input"><span></span></label>
+      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
 
-      <!-- PC用メニュー　スマホでは非表示-->
-          <ul>
-            <% if user_signed_in? %>
-              <li><%= link_to "My page", user_path(current_user.id) %></li>
-            <% else %>
-              <li><%= link_to "Sign in", users_sign_in_path %></li>
-            <% end %>
-            <li><%= link_to "Memo",  posts_path %></li>
-            <li><%= link_to 'Gallery', fotos_path %></li>
-            <li><%= link_to 'Top', root_path %></li>
-          </ul>
-        </div>
+        <!-- PC用メニュー　スマホでは非表示-->
+        <ul>
+          <% if user_signed_in? %>
+          <li><%= link_to "My page", user_path(current_user.id) %></li>
+          <% else %>
+          <li><%= link_to "Sign in", users_sign_in_path %></li>
+          <% end %>
+          <li><%= link_to "Memo",  posts_path %></li>
+          <li><%= link_to 'Top', root_path %></li>
+        </ul>
       </div>
-    </header>
-    <main>
-      <%= yield %>
-    </main>
-    <footer>
+    </div>
+  </header>
+  <main>
+    <%= yield %>
+  </main>
+  <footer>
 
 
-      <div class="left-side">
-        <p>gokugoku</p>
-      </div>
+    <div class="left-side">
+      <p>gokugoku</p>
+    </div>
 
-      <div class="middle-side">
+    <div class="middle-side">
       <p>製作者ホームページ（準備中）</p>
       <p>お問い合わせ（準備中）</p>
-      </div>
+    </div>
 
-      <div class="right-side">
-        <!-- Twitter -->
-        <p>Share:</p>
-        <a href="http://twitter.com/share?url=gokugoku.herokuapp.com&hashtags=gokugokuで宅飲みライフを共有しよう" class="sns twitter-share">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=gokugoku.herokuapp.com" class="sns facebook-share">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-      </div>
+    <div class="right-side">
+      <!-- Twitter -->
+      <p>Share:</p>
+      <a href="http://twitter.com/share?url=gokugoku.herokuapp.com&hashtags=gokugokuで宅飲みライフを共有しよう" class="sns twitter-share">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=gokugoku.herokuapp.com" class="sns facebook-share">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
 
-      <div class ="bottom-side">
-        <p>未成年者の飲酒は法律で固く禁じられています。</p>
-        <p>@All right reserved gokugoku 2020</p>
-      </div>
+    <div class="bottom-side">
+      <p>未成年者の飲酒は法律で固く禁じられています。</p>
+      <p>@All right reserved gokugoku 2020</p>
+    </div>
 
 
-    </footer>
-  </body>
+  </footer>
+</body>
+
 </html>

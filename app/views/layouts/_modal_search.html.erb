@@ -1,39 +1,31 @@
 <div id="modal" class="modal">
-    <div class="modal-content">
-        <div class="modal-body">
-        <p class="title">Search</p>
-        <!-- renderで受け取った変数をmodelに代入 -->
-        <%= form_tag( model, method: :get) do %>
-            <div class="search-form">
-                <%= text_field_tag :search %>
-                <input type="submit" value="&#xf002;" class="fas search-btn">
-            </div>
+  <div class="modal-content">
+    <div class="modal-body">
+      <p class="title">Search</p>
+      <!-- renderで受け取った変数をmodelに代入 -->
+      <%= form_tag( model, method: :get) do %>
+      <div class="search-form">
+        <%= text_field_tag :search %>
+        <input type="submit" value="&#xf002;" class="fas search-btn">
+      </div>
 
-            <% if model == "posts" %>
-                <p>おすすめタグで検索</p>
-                <div class="tag-wrapper">
-                  <%= link_to "#ストロング", posts_path(tag_name: "ストロング"), class: "tag" %>
-                  <%= link_to "#飲みやすい", posts_path(tag_name: "飲みやすい"), class: "tag" %>
-                  <%= link_to "#ノンアルコール", posts_path(tag_name: "ノンアルコール"), class: "tag" %>
-                  <%= link_to "#ビール", posts_path(tag_name: "ビール"), class: "tag" %>
-                </div>
-            <% elsif model == "fotos" %>
-            <p>おすすめタグで検索</p>
-                <div class="tag-wrapper">
-                  <%= link_to "#ストロング", posts_path(tag_name: "ストロング"), class: "tag" %>
-                  <%= link_to "#飲みやすい", posts_path(tag_name: "飲みやすい"), class: "tag" %>
-                  <%= link_to "#ノンアルコール", posts_path(tag_name: "ノンアルコール"), class: "tag" %>
-                  <%= link_to "#ビール", posts_path(tag_name: "ビール"), class: "tag" %>
-                </div>
-            <% end %>
-        <% end %>
+      <% if model == "posts" %>
+      <p>おすすめタグで検索</p>
+      <div class="tag-wrapper">
+        <%= link_to "#ストロング", posts_path(tag_name: "ストロング"), class: "tag" %>
+        <%= link_to "#飲みやすい", posts_path(tag_name: "飲みやすい"), class: "tag" %>
+        <%= link_to "#ノンアルコール", posts_path(tag_name: "ノンアルコール"), class: "tag" %>
+        <%= link_to "#ビール", posts_path(tag_name: "ビール"), class: "tag" %>
+      </div>
+      <% end %>
+      <% end %>
 
-        
-        <button id="closeBtn">
-            <i class="fas fa-times"></i> CLOSE
-        </button>
-        </div>
+
+      <button id="closeBtn">
+        <i class="fas fa-times"></i> CLOSE
+      </button>
     </div>
+  </div>
 </div>
 
 <%= javascript_pack_tag "modal/application" %>
