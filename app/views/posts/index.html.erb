@@ -1,4 +1,3 @@
-
 <div class="posts-container">
   <p class="page-title">Gokugoku Memo</h1>
 
@@ -14,38 +13,29 @@
   <%= render 'layouts/modal_search', model: "posts" %>
 
   <!--投稿表示-->
-  <div class="memo-wrapper">
+  <div class="post-container">
     <% @posts.each do |t| %>
+    <div class="post-wrapper">
       <div class="post">
-        <div class="main-box">
-          <%= link_to "", post_path(t.id) %>
-          <div class ="top-info">
-            <p class="title"><%= t.title %></p>
-            <p><%= t.product %></p>
-          </div>
-          <div class="left-info">
-            <p class="tag">Maker</p>
-            <p><%= t.maker %></p>
-            <p class="tag">Posted by</p>
-            <p><%= t.user.name %></p>
-          </div>
-          <div class="right-info">
-            <%= image_tag t.image_url if t.image? %>
-          </div>
-
-          <div class="bottom-info">
-            <p><i class="fas fa-star"></i> <%= t.rate %></p>
-            <p><i class="fas fa-heart"></i> <%= t.liked_users.count %></p>
-          </div>
+        <img src=<%= t.image_url %> class="post-image">
+        <%= link_to "", post_path(t.id) %>
+        <div class="post-option">
+          <h4>♡ <%= t.liked_users.count %></h4>
         </div>
       </div>
+      <div class="post-info">
+        <div class="post-user">
+          <% if t.user.image? %>
+          <img src=<%= t.user.image %> class="mini-icon">
+          <% else %>
+          <img src="/assets/noicon.jpg" class="mini-icon">
+          <% end %>
+          <p><%= t.user.name %></p>
+        </div>
+      </div>
+    </div>
     <% end %>
   </div>
   <%= paginate @pagination %>
 
 </div>
-
-
-
-
-
