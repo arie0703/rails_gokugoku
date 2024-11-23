@@ -6,7 +6,7 @@ function showElementAnimation() {
   if(!element) return; 
   
   var showTiming = window.innerHeight > 768 ? 200 : 40; // 要素が出てくるタイミングはここで調整
-  var scrollY = window.pageYOffset;
+  var scrollY = window.window.scrollY;
   var windowH = window.innerHeight;
 
   for(var i=0;i<element.length;i++) { 
